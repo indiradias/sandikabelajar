@@ -142,7 +142,7 @@
 
                                                         <div id="gelombang2" class="tab-pane fade show">
                                                             <div class="profile-personal-info">
-                                                                <h6><br>Gelombang II Jalur Prestasi </h6>
+                                                                <h6><br>Gelombang II Jalur Prestasi</h6>
                                                                 <h6>Pelaksanaan : 01 April 2023 - 30 Juni 2023</h6>
                                                                 <h6>Kriteria Seleksi </h6>
                                                                 <li>Juara I, II, III Minimal Tingkat Kabupaten</li>
