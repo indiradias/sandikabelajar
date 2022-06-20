@@ -11,6 +11,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+    {{-- <link href="/css/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
 
   </head>
   <body>
@@ -85,27 +86,6 @@
       </div>
       </div>
     </div>
-      {{-- End Off Menu Search --}}
-
-      {{-- <form action="{{ url()->current() }}"
-        method="get">
-        <div class="relative mx-auto">
-          <input type="search" name="keyword" value="{{ request('keyword') }}" placeholder="Search ....."
-            class="block w-full pl-4 pr-10 text-sm leading-5 transition rounded-full shadow-sm border-secondary-300 bg-secondary-50 focus:bg-white focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-
-            <button type="submit"
-            class="absolute top-0 right-0 inline-flex items-center px-2 py-2 ml-1 mr-2 text-sm focus:outline-none">
-            <svg class="w-5 h-5 text-gray-500 transition dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 disabled:opacity-25"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="1 2 2 3"
-              fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clip-rule="evenodd" />
-            </svg>
-          </button>
-        </div>
-      </form> --}}
 
 
       {{-- Tampilan Tabel Data Pendaftar --}}
@@ -131,13 +111,8 @@
             </thead>
 
 
-            @foreach ($sisw as $siswa)
+            @foreach ($sisw as $index => $siswa)
 
-            {{-- <tbody class="table-border-bottom-0">
-              <tr>
-
-              </tr>
-            </tbody> --}}
             <tbody>
             <tr>
                 <td class="text-center">{{ ++$i }}</td>
@@ -147,34 +122,11 @@
                 <td>{{ $siswa->jenis_kelamin}}</td>
                 <td>{{ $siswa->status_pendaftaran}}</td>
 
-                {{-- Status --}}
-                {{-- <td>
-                    <div class="col-xl-2  col-lg-6 col-sm-4 mb-sm-3 mb-3 text-end">
-                        <div class="d-flex justify-content-end project-btn">
-                            @if ($siswa->status_pendaftaran)
-                                <a class="bx bx-dots-vertical-rounded"
-                                    href="detail-status/{{ $siswa->nisn }}"
-                                    class=" btn btn-warning text-success fs-16 font-w600">
-
-                                </a>
-                            @else
-                                <a
-                                    href="detail-status/{{ $siswa->nisn }}"
-                                    class="  text-black fs-16 font-w600">
-                                    Belum Terverifikasi
-                                </a>
-                            @endif
-                        </div>
-                    </div>
-
-
-                </td> --}}
-
                 {{-- Action --}}
                 <td class="text-center">
-                    <a class="btn btn-success link" href="/datapendaftar/show/{{ $siswa->nisn}}" class="btn btn-sm btn-success">Show</a>
+                    <a class="btn btn-warning" href="/datapendaftar/show/{{ $siswa->nisn}}" class="btn btn-sm btn-success">Lihat Data Peserta</a>
 
-                    <a class="btn btn-warning" href="/datapendaftar/edit/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Edit</a>
+                    {{-- <a class="btn btn-warning" href="/datapendaftar/edit/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Edit</a> --}}
                 </td>
 
 
@@ -182,13 +134,16 @@
                         @method('DELETE')
 
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button> --}}
-                    {{-- </form>
-                </td> --}}
+        </form>
+                </td>
             </tr>
         </tbody>
             @endforeach
           </table>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           {!! $sisw->links() !!}
+          </div>
+
         </div>
       </div>
 

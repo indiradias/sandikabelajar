@@ -16,21 +16,26 @@ class DataPendaftarController extends Controller
      */
     public function index(Request $request)
     {
-        $pagination  = 10;
-        $sisw   = Siswa::when($request->keyword, function ($query) use ($request) {
-        return $query
-            ->where('nama_peserta', 'like', "%{$request->keyword}%");
-        })->orderBy('created_at', 'desc')->paginate($pagination);
+        // dd(request('keywoard'));
+        $pagination  = 5;
+        $keyword = $request->keywoard;
+        $sisw   = Siswa::where(function ($query) use ($keyword) {
+            return $query
+                ->where('nama_peserta', 'like', "%".$keyword."%")
+                ->orWhere('nisn', 'like', "%".$keyword."%")
+                ->orWhere('nik_peserta', 'like', "%".$keyword."%");
+        })->orderBy('created_at', 'desc')->paginate(5);
 
-         $sisw->appends($request->only('keyword'));
+        return view ('datapendaftar-admin',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 5);
+        //return view ('datapendaftar-admin',compact('sisw'));
 
-        //  return view('datapendaftar-admin', [
-        // 'nisn'    => 'nisn',
-        // 'nama_peserta' => $sisw,
-        //  ])->with('i', ($request->input('page', 1) - 1) * $pagination);
-
-        // $sisw = Siswa::latest()->paginate(5);
-        return view ('datapendaftar-admin',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 10);
+        // if($request->has('search')){
+        //     $data = Angkutan::where('nama_angkutan','Like', '%' .$request->search .'%')->paginate(5);
+        // }
+        // else{
+        //     $data = Angkutan::paginate(5);
+        // }
+        // return view('dashboard.angkutan.angkutan', compact ('data'));
 
     }
 
@@ -97,12 +102,8 @@ class DataPendaftarController extends Controller
     public function edit(Siswa $nisn)
     {
 
-        //$siswa = Siswa::findOrFail($nisn);
         return view('datapendaftar-edit', $nisn);
-        // $sisw = [
-        //     'siswa' => $this->Siswa->editData(),
-        // ];
-        // return view('datapendaftar-edit', $sisw);
+
     }
 
     /**

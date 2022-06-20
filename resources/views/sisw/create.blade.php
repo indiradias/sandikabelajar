@@ -1,4 +1,6 @@
 @extends('template')
+@section ('header')
+<span class="app-brand-text demo menu-text fw-bolder ms-2">Form Pendaftaran</span>
 
 @section('pendaftaran')
 
@@ -125,6 +127,18 @@
                             <strong>NoHp Orangtua</strong>
                             <input type="text" name="noHp_orangtua" class="form-control" placeholder="NoHp Orangtua" value="{{ old('noHp_orangtua') }}">
                         </div>
+
+                        {{-- <div class="col-md-7">
+                            <div class="custom-control custom-radio custom-control-inline mt-2">
+                              <input type="radio" id="asal_sekolah" name="jenis_sekolah" class="custom-control-input" value="SMP">
+                              <label class="custom-control-label" for="asal_sekolah">SMP</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                              <input type="radio" id="asal_sekolah" name="jenis_sekolah" class="custom-control-input" value="MTs">
+                              <label class="custom-control-label" for="asal_sekolah">MTs</label>
+                            </div>
+                        </div> --}}
+
                     </div>
                   </div>
                 </div>
@@ -139,7 +153,7 @@
 
                 <div class="form-group">
                     <strong>Pas Photo</strong>
-                  <input type="file" class="form-control" id="pasphoto" name="pasphoto" />
+                  <input type="file" class="form-control" id="pasphoto" name="pasphoto"/>
                 </div>
 
                 <div class="form-group">
@@ -163,8 +177,8 @@
                 </div>
 
                 <div class="form-group">
-                    <strong>SKHUN</strong>
-                  <input type="file" class="form-control" name="skhun" />
+                    <strong>Sertifikat Prestasi</strong> <span>*(Wajib diisi untuk pendaftaran gelombang 2)</span>
+                  <input type="file" class="form-control" name="sertifikat_prestasi" />
                 </div>
                 {{-- End Of Upload Berkas Persyaratan --}}
 
@@ -173,8 +187,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
 </div>
         {{-- Button --}}
@@ -186,5 +198,6 @@
 
 </form>
 
+@endsection
 @endsection
 

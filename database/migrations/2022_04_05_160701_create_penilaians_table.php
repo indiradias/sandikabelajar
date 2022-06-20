@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
+            $table->char('nisn'); //table foreign key
+            $table->foreign('nisn')->references('nisn')->on('siswas'); //table foreign key
+            $table->unsignedInteger('jenis_tes_id'); //table foreign key
+            $table->foreign('jenis_tes_id')->references('id')->on('jenis_tes'); //table foreign key
+            $table->integer('nilai'); //table nilai
             $table->timestamps();
         });
     }

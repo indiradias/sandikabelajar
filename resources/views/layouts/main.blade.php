@@ -36,7 +36,7 @@
                         <a class="nav-link {{ ($title === "Home") ? 'active' : ''}}" href="home" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ ($title === "panduan") ? 'active' : ''}}" href="panduan">Panduan Pendaftaran</a>
+                        <a class="nav-link {{ ($title === "panduan") ? 'active' : ''}}" href="panduan" id="panduan">Panduan Pendaftaran</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ ($title === "/login") ? 'active' : ''}}" href="/login">Login</a>
@@ -56,6 +56,19 @@
             @yield('container')
         </div>
     {{-- END OF Menu Halaman Home --}}
+
+    {{-- Menu Halaman Panduan --}}
+        <div class="mt-4">
+            {{-- @yield('panduan') --}}
+            {{-- Panduan Pendaftaran --}}
+        <div class="row">
+            <div class="new-arrivals-img-contnent" id="panduan">
+                    <img class="d-block w-auto h-50 items-center" src="{{ asset('PPDB/images/AlurPPDB.png') }}" alt="">
+            </div>
+             </div>
+            {{-- End of Panduan Pendaftaran --}}
+        </div>
+    {{-- END OF Menu Halaman Panduan --}}
 
 
 

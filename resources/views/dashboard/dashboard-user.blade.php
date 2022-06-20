@@ -1,4 +1,7 @@
 @extends('template')
+@section('header')
+<span class="app-brand-text demo menu-text fw-bolder ms-2">Dashboard</span>
+
 @section('dashboard')
 <title>Sistem PPDB | Dashboard</title>
             <div class="container-xxl flex-grow-1 container-p-y">
@@ -383,5 +386,6 @@
                 <!--/ Transactions -->
               </div>
             </div>
+@endsection
 @endsection
 

@@ -152,7 +152,7 @@
                                                         </div>
                                                     </div>
                                                     </div>
-
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,19 +164,28 @@
                 </div>
             </div>
         </div>
-
-        {{-- Footer --}}
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> <br>
-                </p>
-            </div>
-        </div>
-        {{-- End of Footer --}}
-    {{-- </div> --}}
-
 @endsection
+
+@section('panduan')
+        {{-- Panduan Pendaftaran --}}
+        <div class="row">
+            <div class="new-arrivals-img-contnent">
+                    <img class="d-block w-auto h-50 items-center" src="{{ asset('PPDB/images/AlurPPDB.png') }}" alt="">
+            </div>
+             </div>
+            {{-- End of Panduan Pendaftaran --}}
+@endsection
+
+{{-- Footer --}}
+<div class="footer">
+    <div class="copyright">
+        <p>Copyright ©
+            <script>
+                document.write(new Date().getFullYear())
+            </script> <br>
+        </p>
+    </div>
+</div>
+{{-- End of Footer --}}
+{{-- </div> --}}
 

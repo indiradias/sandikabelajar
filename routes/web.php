@@ -10,6 +10,8 @@ use App\Http\Controllers\DataPendaftarController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\SiswaControllers;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\InformasiPesertaController;
+use App\Http\Controllers\PembayaranPesertaController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -59,10 +61,11 @@ Route::get('/dashboard-user', function(){
     return view('dashboard.dashboard-user')->name('dashboard-user');
 });
 
-Route::resource('/datapendaftar', DataPendaftarController::class)->middleware('auth'); //Route untuk ke menu data pendaftar (admin)
-Route::resource('/penilaian', PenilaianController::class)->middleware('auth'); //Route resource untuk penilaian
-//Route::resource('/pendaftaranuser', PendaftaranUserController::class); //Route untuk ke menu pendaftaran (pserta)//Route untuk ke menu pendaftaran (pserta)
+Route::resource('/datapendaftar', DataPendaftarController::class); //Route untuk ke menu data pendaftar (admin)
+Route::resource('/penilaian', PenilaianController::class); //Route resource untuk penilaian
 
+Route::get('/penilaian/inputnilai/{nisn}', [PenilaianController::class, 'create']);
+Route::get('/penilaian/editnilai/{nisn}', [PenilaianController::class, 'edit']);
 
 Route::resource('sisw',SiswaControllers::class);
 
@@ -73,9 +76,10 @@ Route::post('/datapendaftar{sisw}', [DataPendaftarController::class, 'verifikasi
 Route::get('/data-status', [DataPendaftarController::class, 'index']);
 // Route::post('/data-status{nisn}', [DataPendaftarController::class, 'verifikasistatuspendaftaran']);
 
-//Route::get('/verified-status/{nisn}', [DataPendaftarController::class, 'verifikasistatuspendaftaran']);
-Route::get('/notverified-status/{nisn}', [DataPendaftarController::class, 'notverifikasistatuspendaftaran']);
-Route::get('/invalid-status/{nisn}', [DataPendaftarController::class, 'invalidstatuspendaftaran']);
+Route::resource('/informasi', InformasiPesertaController::class); //Route untuk menu informasi
+
+Route::resource('/pembayaran', PembayaranPesertaController::class); //Route untuk menu Pembayaran
+
 
 
 

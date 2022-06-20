@@ -10,7 +10,8 @@ class LoginController extends Controller
     public function index()
     {
         return view('login.index', [ //ada pada file view > login > index
-            'title' => 'Login'
+            'title' => 'Login',
+            'active' => 'Login'
         ]);
     }
 

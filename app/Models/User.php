@@ -24,6 +24,11 @@ class User extends Authenticatable
     //     'password',
     // ];
 
+    //relasi user id untuk verifikasi stts peserta
+    public function siswa(){
+		return $this->hasMany(Siswa::class);
+	}
+
     protected $guarded = ['id']; //apa yg ga boleh diisi oleh tabel, kebalikan dari fillable
 
     /**

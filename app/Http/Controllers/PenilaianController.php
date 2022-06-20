@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\pendaftaran;
+use App\Models\penilaian;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -14,19 +17,26 @@ class PenilaianController extends Controller
     public function index(Request $request)
     {
         $pagination  = 5;
-        $sisw   = Siswa::when($request->keyword, function ($query) use ($request) {
-        return $query
-            ->where('nama_peserta', 'like', "%{$request->keyword}%");
+        $keyword = $request->keywoard;
+        $sisw   = Siswa::where(function ($query) use ($keyword) {
+            return $query
+            ->where('nama_peserta', 'like', "%".$keyword."%")
+            ->orWhere('nisn', 'like', "%".$keyword."%")
+            ->orWhere('nik_peserta', 'like', "%".$keyword."%");
         })->orderBy('created_at', 'desc')->paginate($pagination);
 
-         $sisw->appends($request->only('keyword'));
+        // $sisw->appends($request->only('keyword'));
 
-        //  return view('datapendaftar-admin', [
-        // 'nisn'    => 'nisn',
-        // 'nama_peserta' => $sisw,
-        //  ])->with('i', ($request->input('page', 1) - 1) * $pagination);
+        // set perhitungan nilai rata-rata dari 3 jenis test
+        foreach ($sisw as $key => $siswa) {
+            $nilai = $siswa->getPenilaian()->get();
+            if (!empty($nilai[0]))
+                $siswa->nilai = ($nilai[0]->nilai + $nilai[1]->nilai + $nilai[2]->nilai) / 3;
+            else
+                $siswa->nilai = 0;
+        }
+        // $sisw = $sisw->orderBy("nilai");
 
-        // $sisw = Siswa::latest()->paginate(5);
         return view ('penilaian-admin',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 5);
     }
 
@@ -35,9 +45,9 @@ class PenilaianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($nisn)
     {
-        //
+        return view('penilaian-inputnilai', ['nisn' => $nisn]);
     }
 
     /**
@@ -48,7 +58,35 @@ class PenilaianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tes_wawancara' => 'required',
+            'tes_tulis' => 'required',
+            'tes_mengaji' => 'required'
+        ]);
+
+        $penilaian = [
+            [
+                'nisn' => $request->get('nisn'),
+                'nilai' => $request->get('tes_wawancara'),
+                'jenis_tes_id' => 1, // wawancara
+            ],
+            [
+                'nisn' => $request->get('nisn'),
+                'nilai' => $request->get('tes_tulis'),
+                'jenis_tes_id' => 2, // tulis
+            ],
+            [
+                'nisn' => $request->get('nisn'),
+                'nilai' => $request->get('tes_mengaji'),
+                'jenis_tes_id' => 3, // mengaji
+            ]
+        ];
+
+
+        penilaian::insert($penilaian);
+
+
+        return redirect('penilaian')->with('succes','Data Nilai Berhasil di Input');
     }
 
     /**
@@ -68,9 +106,11 @@ class PenilaianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($nisn)
     {
-        //
+
+        //return view('penilaian-inputnilai', ['nisn' => $nisn]);
+        return view('penilaian-editnilai', ['nisn' => $nisn]);
     }
 
     /**
@@ -80,9 +120,10 @@ class PenilaianController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nisn)
     {
-        //
+        $pendaftar   = Siswa::where('nisn', '=', $nisn)->firstOrFail();
+        return json_encode($pendaftar->getPenilaian()->getModel());
     }
 
     /**

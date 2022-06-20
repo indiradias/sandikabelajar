@@ -70,10 +70,9 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Data Pendaftar</h1>
+        <h1 class="h2">Lihat Data Peserta</h1>
       </div>
         {{-- Ini Untuk Konten --}}
-        <h5> Show Siswa</h5>
         <div class="row mt-4 mb-4">
             <div class="col-sm-4 col-6">
 
@@ -82,7 +81,7 @@
                 <span style="display: inline">
                     <a class="btn btn-secondary" style="width: 75px;" href="javascript:history.go(-1)"> Back</a>
                 </span>
-                    <form action="{{ route('datapendaftar.update', $nisn) }}" method="post"
+                    {{-- <form action="{{ route('datapendaftar.update', $nisn) }}" method="post"
                         enctype="multipart/form-data"
                 >
                      @method('PATCH')
@@ -94,265 +93,244 @@
                 <span style="display: inline">
             <button type="submit" class="btn btn-success link">Konfirmasi Status</button>
         </span>
-    </form>
-
-
+    </form> --}}
             </div>
 
     </div>
 
-        {{-- <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>NISN</strong>
-                      <?= $nisn;?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>NIK Peserta</strong>
-                    <?= $nik_peserta;?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nama Peserta</strong>
-                    <?= $nama_peserta;?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Jenis Kelamin</strong>
-                    <?= $jenis_kelamin;?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Tempat Lahir</strong>
-                    <?= $tempat_lahir;?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Tanggal Lahir</strong>
-                    <?= $tanggal_lahir;?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Asal Sekolah</strong>
-                    <?= $asal_sekolah;?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Alamat Peserta</strong>
-                    <?= $alamat_peserta;?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nama Ayah</strong>
-                    <?= $nama_ayah?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nama Ibu</strong>
-                    <?= $nama_ibu?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nik Ayah</strong>
-                    <?= $nik_ayah?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nik Ibu</strong>
-                    <?= $nik_ibu?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Pekerjaan Ayah</strong>
-                    <?= $pekerjaan_ayah?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Pekerjaan Ibu</strong>
-                    <?= $pekerjaan_ibu?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Alamat Orangtua</strong>
-                    <?= $alamat_orangtua?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nomor Hp Orangtua</strong>
-                    <?= $noHp_orangtua?>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Pasphoto</strong>
-                    <?= $pasphoto?>
+        <div class="content-wrapper">
+            <!-- Content -->
 
-                    <img
-                    src="../assets/img/illustrations/man-with-laptop-light.png"
-                    />
+            <div class="container-xxl flex-grow-1 container-p-y">
 
+              <!-- Basic Layout & Basic with Icons -->
+              <div class="row">
+                <!-- Basic Layout -->
+                <div class="col-xxl">
+                  <div class="card mb-4">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mb-0">Data Pribadi Peserta</h5>
+                    </div>
+
+                    <div class="card-body">
+
+                      <form>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">NISN Peserta</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nisn" value="{{ $nisn }}" disabled/>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">NIK Peserta</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nik_peserta" value="{{ $nik_peserta }}" disabled/>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Peserta</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nama_peserta" value="{{ $nama_peserta }}" disabled/>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Jenis Kelamin</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="jenis_kelamin" value="{{ $jenis_kelamin }}" disabled/>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Tempat Lahir</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="tempat_lahir" value="{{ $tempat_lahir }}" disabled/>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Tanggal Lahir</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="tanggal_lahir" value="{{ $tanggal_lahir }}" disabled/>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Asal Sekolah</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="asal_sekolah" value="{{ $asal_sekolah }}" disabled/>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Alamat Peserta</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="alamat_peserta" value="{{ $alamat_peserta }}" disabled/>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
+                {{-- Batas Table form 1 --}}
+
+                <div class="col-xxl">
+                    <div class="card mb-4">
+                      <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Data Orangtua Peserta</h5>
+                      </div>
+
+                      <div class="card-body">
+
+                        <form>
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Ayah</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="nama_ayah" value="{{ $nama_ayah }}" disabled/>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Ibu</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="nama_ibu" value="{{ $nama_ibu }}" disabled/>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Pekerjaan Ayah</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="$pekerjaan_ayah" value="{{ $pekerjaan_ayah }}" disabled/>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Pekerjaan Ibu</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="$pekerjaan_ibu" value="{{ $pekerjaan_ibu }}" disabled/>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Alamat Orangtua</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="alamat_orangtua" value="{{ $alamat_orangtua }}" disabled/>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-phone">No Hp Orangtua</label>
+                            <div class="col-sm-10">
+                              <input
+                                type="text"
+                                id="noHp_orangtua"
+                                class="form-control phone-mask"
+                                value="{{ $noHp_orangtua }}" disabled
+                              />
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                    </div>
+                  </div>
+                  {{-- Batas Tabel Form 2 --}}
+
+                  <div class="col-xxl">
+                    <div class="card mb-4">
+                      <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">File Berkas Persyaratan Peserta</h5>
+                      </div>
+
+                      <div class="card-body">
+
+                        <form>
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Pasphoto</label>
+                            <div class="col-sm-10">
+                                <a href="{{ asset('storage/' . $pasphoto) }}" class="btn btn-xs btn-secondary">Show File</a>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Akta Peserta</label>
+                            <div class="col-sm-10">
+                                <a href="{{ asset('storage/' . $pasphoto) }}" class="btn btn-xs btn-secondary">Show File</a>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">KTP Orangtua</label>
+                            <div class="col-sm-10">
+                                <a href="{{ asset('storage/' . $ktp_orangtua) }}" class="btn btn-xs btn-secondary">Show File</a>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Kartu Keluarga</label>
+                            <div class="col-sm-10">
+                                <a href="{{ asset('storage/' . $kartu_keluarga) }}" class="btn btn-xs btn-secondary">Show File</a>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Raport</label>
+                            <div class="col-sm-10">
+                                <a href="{{ asset('storage/' . $raport) }}" class="btn btn-xs btn-secondary">Show File</a>
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Sertifikat Prestasi</label>
+                            <div class="col-sm-10">
+                                <a href="{{ asset('storage/' . $sertifikat_prestasi) }}" class="btn btn-xs btn-secondary">Show File</a>
+                            </div>
+                          </div>
+
+                          {{-- Button Verifikasi Status --}}
+                          {{-- <div class="row justify-content-end">
+                            <div class="col-sm-8">
+                             <div class="form-group" hidden>
+                             <input type="text" name="status_pendaftaran" class="form-control" placeholder="NISN Peserta" value="Terverifikasi">
+                             </div>
+                            <br>
+                                <span style="display: inline">
+                                    <button type="submit" class="btn btn-success link">Konfirmasi Status</button>
+                                </span>
+                            </div>
+                          </div> --}}
+                          {{-- End Verifikasi Status --}}
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  {{-- Batas Tabel Form 3 --}}
+
+              </div>
+              </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Akta peserta</strong>
-                    <?= $akta_peserta?>
+            <!-- / Content -->
+            {{-- Button Verifikasi Status --}}
+            <form action="{{ route('datapendaftar.update', $nisn) }}" method="post" enctype="multipart/form-data">
+                @method('PATCH')
+                @csrf
+                    <div class="form-group" hidden>
+                        <input type="text" name="status_pendaftaran" class="form-control" placeholder="NISN Peserta" value="Terverifikasi">
+                    </div>
+                <br>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <button type="submit" class="btn btn-success link">Konfirmasi Status</button>
                 </div>
-            </div>
+            </form>
+            {{-- End Of Button Verifikasi Status --}}
+
+            <div class="content-backdrop fade"></div>
+          </div>
 
 
 
-        </div> --}}
-
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="row mb-2">
-                        <div class="pt-4 border-bottom-1 pb-3">
-                            <h5 class="text-primary">PROFIL PESERTA</h5>
-                        </div>
-                        <div class="col-sm-4 col-5">
-                            <h6 class="f-w-500">NISN Peserta</h6>
-                        </div>
-                        <div class="col-sm-8 col-7">
-                            <?= $nisn;?>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-4 col-6">
-                            <h6 class="f-w-500">NIK Peserta</h6>
-                        </div>
-                        <div class="col-sm-8 col-6">
-                            <?= $nik_peserta;?>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-4 col-6">
-                            <h6 class="f-w-500">Nama Peserta</h6>
-                        </div>
-                        <div class="col-sm-8 col-6">
-                            <?= $nama_peserta;?>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-4 col-6">
-                            <h6 class="f-w-500">Jenis Kelamin</h6>
-                        </div>
-                        <div class="col-sm-8 col-6">
-                            <?= $jenis_kelamin;?>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-4 col-6">
-                            <h6 class="f-w-500">Tempat dan Tanggal Lahir</h6>
-                        </div>
-                        <div class="col-sm-8 col-6">
-                            <?= $tempat_lahir;?>,
-                            <?= $tanggal_lahir;?>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-4 col-6">
-                            <h6 class="f-w-500">Asal Sekolah</h6>
-                        </div>
-                        <div class="col-sm-8 col-6">
-                            <?= $asal_sekolah;?>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-4 col-6">
-                            <h6 class="f-w-500">Alamat Peserta</h6>
-                        </div>
-                        <div class="col-sm-8 col-6">
-                            <?= $alamat_peserta;?>
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="col-lg-6">
-                    <div class="pt-4 border-bottom-1 pb-3">
-                        <img src="{{ public($pasphoto) }}" width="250px" height="300" alt="">
-                    </div>
-                </div> --}}
-            </div>
-
-
-                <div class="pt-4 border-bottom-1 pb-3">
-                    <h5 class="text-primary">DATA ORANG TUA</h5>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row mb-2">
-                            <div class="col-sm-4 col-6">
-                                <h6 class="f-w-500">Nama Ayah</h6>
-                            </div>
-                            <div class="col-sm-8 col-6">
-                                <?= $nama_ayah;?>
-                            </div>
-                            <div class="col-sm-3 col-6">
-                                <h6 class="f-w-500">Pekerjaan Ayah</h6>
-                            </div>
-                            <div class="col-sm-9 col-6">
-                                <?= $pekerjaan_ayah;?>
-                            </div>
-                            <div class="col-sm-3 col-6">
-                                <h6 class="f-w-500">Alamat Orangtua</h6>
-                            </div>
-                            <div class="col-sm-9 col-6">
-                                <?= $alamat_orangtua;?>
-                            </div>
-                            {{-- <div class="col-sm-3 col-6">
-                                <h6 class="f-w-500">Dokumen</h6>
-                            </div> --}}
-                            {{-- <div class="col-sm-9 col-6">
-                                <a class="btn btn-light shadow btn-xs sharp me-1" title="Detail Registration"
-                                href="{{ asset($viewData->slip_gaji) }}"><i class="fa fa-file-alt"></i></a>
-                                <a class="btn btn-light shadow btn-xs sharp me-1" title="Detail Registration"
-                                href="{{ asset($viewData->kk) }}"><i class="fa fa-file-alt"></i></a>
-                            </div> --}}
-                        </div>
-                    </div>
-                    <!--kiri-->
-                    <div class="col-lg-6">
-                        <div class="row mb-2">
-                            <div class="col-sm-3 col-6">
-                                <h6 class="f-w-500">Nama Ibu</h6>
-                            </div>
-                            <div class="col-sm-9 col-6">
-                                <?= $nama_ibu;?>
-                            </div>
-                            <div class="col-sm-3 col-6">
-                                <h6 class="f-w-500">Pekerjaan Ibu</h6>
-                            </div>
-                            <div class="col-sm-9 col-6">
-                                <?= $pekerjaan_ibu;?>
-                            </div>
-                            <div class="col-sm-3 col-6">
-                                <h6 class="f-w-500">No Hp Orangtua</h6>
-                            </div>
-                            <div class="col-sm-9 col-6">
-                                <?= $noHp_orangtua;?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
       </main>
   </div>
 </div>

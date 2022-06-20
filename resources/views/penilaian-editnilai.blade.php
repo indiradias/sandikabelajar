@@ -70,7 +70,7 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Input Nilai Tes Peserta</h1>
+        <h1 class="h2">Edit Nilai Peserta</h1>
       </div>
 
       {{-- Ini Untuk Konten --}}
@@ -112,14 +112,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tes Wawancara</strong>
-                    {{-- <input
-                            type="text" name="tes_wawancara" class="form-control" placeholder="Tes Wawancara" value="{{ $tes_wawancara }}"
-                        > --}}
                     <input
                         type="text"
                         name="tes_wawancara"
                         class="form-control"
-                        placeholder="Masukkan Nilai"
+                        placeholder="Tes Wawancara"
                         required
                     >
                 </div>
@@ -127,14 +124,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tes Tulis</strong>
-                    {{-- <input
-                            type="text" name="tes_tulis" class="form-control" placeholder="Tes Tulis" value="{{ $tes_tulis}}"
-                        > --}}
                     <input
                         type="text"
                         name="tes_tulis"
                         class="form-control"
-                        placeholder="Masukkan Nilai"
+                        placeholder="Tes Tulis"
                         required
                     >
                 </div>
@@ -142,21 +136,18 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tes Mengaji</strong>
-                    {{-- <input
-                            type="text" name="tes_mengaji" value="{{ $tes_mengaji }}" class="form-control" placeholder="Tes Mengaji"
-                        > --}}
                     <input
                         type="text"
                         name="tes_mengaji"
                         required
                         class="form-control"
-                        placeholder="Masukkan Nilai"
+                        placeholder="Tes Mengaji"
                     >
                 </div>
             </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-success link">Simpan</button>
+            <button type="submit" class="btn btn-success link">Update</button>
 
         </div>
         </div>

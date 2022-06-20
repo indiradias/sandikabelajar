@@ -15,6 +15,7 @@ class SiswaControllers extends Controller
     public function index()
     {
        //
+
     }
 
     /**
@@ -41,6 +42,7 @@ class SiswaControllers extends Controller
 
         $validatedData = $request->validate([
             'nisn' => 'required',
+            // 'user_id' => auth()->id(),
             'nik_peserta' => 'required',
             'nama_peserta' => 'required',
             'jenis_kelamin' => 'required',
@@ -62,9 +64,10 @@ class SiswaControllers extends Controller
             'ktp_orangtua' => 'required|file|max:1024',
             'kartu_keluarga' => 'required|file|max:1024',
             'raport' => 'required|file|max:1024',
-            'skhun' => 'required|file|max:1024',
+            'sertifikat_prestasi' => 'file|max:1024',
         ]);
 
+        //$file = $request->file('pasphoto');
         if($request->file('pasphoto')) {
             $validatedData['pasphoto'] = $request->file('pasphoto')->store('pasphoto');
         }
@@ -80,8 +83,8 @@ class SiswaControllers extends Controller
         if($request->file('raport')) {
             $validatedData['raport'] = $request->file('raport')->store('raport');
         }
-        if($request->file('skhun')) {
-            $validatedData['skhun'] = $request->file('skhun')->store('skhun');
+        if($request->file('sertifikat_prestasi')) {
+            $validatedData['sertifikat_prestasi'] = $request->file('sertifikat_prestasi')->store('sertifikat_prestasi');
         }
 
         Siswa::create($validatedData);

@@ -11,8 +11,8 @@ class RegisterController extends Controller
     public function index()
     {
         return view('register.index', [ //untuk indikasi bhwa terdapat file register yg di dalamnya ada file  inde (ini ada pada view)
-            'title' => 'Register',
-            'active' => 'register'
+            'title' => 'Register'
+
         ]);
     }
 

@@ -127,6 +127,8 @@
                     </g>
                 </svg>
               </span>
+
+
               <img src="PPDB/images/logo smp.png" width="40" height="40" class="d-inline-block align-text-top">
               <span class="app-brand-text menu-text fw-bolder ms-2">PPDB Online</span>
             </a>
@@ -140,23 +142,23 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item {{ Request::is('dashboard-user') ? 'active' : ''}}" >
+            <li class="menu-item {{ Request::is('redirects') ? 'active' : ''}}" >
               <a href="/redirects" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
+                <div data-i18n="Dashboard">Dashboard</div>
               </a>
             </li>
 
             <!-- Pembayaran -->
-            <li class="menu-item ">
-              <a href="javascript:void(0);" class="menu-link">
+            <li class="menu-item {{ Request::is('pembayaran') ? 'active' : ''}}">
+              <a href="/pembayaran" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Pembayaran">Pembayaran</div>
               </a>
             </li>
 
             {{-- Pendaftaran --}}
-            <li class="menu-item {{ Request::is('sisw') ? 'active' : ''}}">
+            <li class="menu-item {{ Request::is('sisw.create') ? 'active' : ''}}">
               <a href="/sisw/create" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Pendaftaran">Pendaftaran</div>
@@ -164,8 +166,8 @@
             </li>
 
             {{-- Informasi --}}
-            <li class="menu-item">
-              <a href="cards-basic.html" class="menu-link">
+            <li class="menu-item {{ Request::is('informasi') ? 'active' : ''}}">
+              <a href="/informasi" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Informasi</div>
               </a>
@@ -191,7 +193,7 @@
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center">
-                <span class="app-brand-text demo menu-text fw-bolder ms-2">Form Pendaftaran</span>
+                @yield('header')
               </div>
               <!-- /Search -->
 
@@ -265,9 +267,17 @@
             @yield('dashboard')
             {{-- End Of Content Dashboard --}}
 
+            {{-- Content Pembayaran --}}
+            @yield('pembayaran')
+            {{-- End Of Content Pembayaran --}}
+
             {{-- Content Pendaftaran Peserta --}}
             @yield('pendaftaran')
             {{-- End Of Content Pendaftaran Peserta --}}
+
+            {{-- Content Informasi Peserta --}}
+            @yield('informasi')
+            {{-- End Of Content Informasi Peserta --}}
 
 
             <div class="content-backdrop fade"></div>

@@ -73,13 +73,13 @@
         <h1 class="h2">Data Pendaftar</h1>
       </div>
 
-      {{-- Menu Search --}}
+      {{-- Menu Search--}}
       <form action="{{ url()->current() }}"
         method="get">
       <div class="row">
       <div class="col-md-3">
         <div class="input-group mb-4">
-        <input type="search" class="from-control" placeholder="Search..." name="keywoard" value="{{ request('keyword') }}">
+        <input type="search" class="from-control" placeholder="search..." name="keywoard" value="{{ request('keyword') }}">
         <button class="btn btn-success link" type="submit">Search</button>
       </div>
       </div>
@@ -129,7 +129,7 @@
                 </tr>
             </thead>
 
-            @foreach ($sisw as $siswa)
+            @foreach ($sisw as $index => $siswa)
 
             {{-- <tbody class="table-border-bottom-0">
               <tr>
@@ -143,37 +143,20 @@
                 <td>{{ $siswa->nik_peserta}}</td>
                 <td>{{ $siswa->nama_peserta}}</td>
                 <td>{{ $siswa->jenis_kelamin}}</td>
-                <td>{{ $siswa->status_pendaftaran}}</td>
-
-                {{-- Status --}}
-                {{-- <td>
-                    <div class="col-xl-2  col-lg-6 col-sm-4 mb-sm-3 mb-3 text-end">
-                        <div class="d-flex justify-content-end project-btn">
-                            @if ($siswa->status_pendaftaran)
-                                <a class="bx bx-dots-vertical-rounded"
-                                    href="detail-status/{{ $siswa->nisn }}"
-                                    class=" btn btn-warning text-success fs-16 font-w600">
-                                    Terverifikasi
-                                </a>
-                            @else
-                                <a
-                                    href="detail-status/{{ $siswa->nisn }}"
-                                    class=" btn btn-warning text-success fs-16 font-w600">
-                                    Belum <br>
-                                    Terverifikasi
-                                </a>
-                            @endif
-                        </div>
-                    </div>
-
-
-                </td> --}}
+                <td>
+                    {{ $siswa->nilai }}
+                    <i class="fe fe-info"></i>
+                </td>
 
                 {{-- Action --}}
                 <td class="text-center">
                     {{-- <a class="btn btn-success link" href="/datapendaftar/show/{{ $siswa->nisn}}" class="btn btn-sm btn-success">Nilai</a> --}}
 
-                    <a class="btn btn-warning" href="/penilaian/inputnilai/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Input Nilai</a>
+                    @if (empty($siswa->nilai))
+                        <a class="btn btn-warning" href="/penilaian/inputnilai/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Input Nilai</a>
+                    @else
+                        <a class="btn btn-success link" href="/penilaian/editnilai/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Edit Nilai</a>
+                    @endif
                 </td>
 
 
