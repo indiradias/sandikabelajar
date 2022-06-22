@@ -39,6 +39,13 @@ Route::get('/home', function () {
     ]);
 });
 
+//Route untuk manggil navbar panduan pendaftaran
+Route::get('/panduan', function () {
+    return view('panduan' , [
+        "title" => "Panduan"
+    ]);
+});
+
 
 Route::get('/redirects', [RedirectsController::class, 'index']); //Route redirect untuk multi auth
 

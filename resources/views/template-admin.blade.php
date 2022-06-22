@@ -16,7 +16,7 @@
 
 <header class="navbar navbar-dark sticky-top bg-success link flex-md-nowrap p-0 shadow">
 
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3">PPDB SMP Al-Azhar Muncar </a>
+  <a class="navbar-brand col-md-4 col-lg-2 me-0 px-3 ">PPDB SMP Al-Azhar Muncar </a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,9 +26,10 @@
       {{-- Logout --}}
       <form action="/logout" method="post">
         @csrf
-        <button type="submit" class="nav-link px-3 bg-dark border-0">
-            <i class="bi bi-box-arrow-right">
-                </i>Logout</button>
+        <button type="submit" class="nav-link px-3 bg-success link border-0">
+            <i class="bi bi-box-arrow-right"></i>
+                    <p class="bg-success text-white px-3">Logout</p>
+        </button>
       </form>
       {{-- End of Logout --}}
     </div>
@@ -38,15 +39,25 @@
 <div class="container-fluid">
   <div class="row">
 
-
     {{-- SIDEBAR --}}
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-success link sidebar collapse">
+
+        <div class="slider">
+            <div class="slider-head">
+                <div class="d-block pt-4 pb-3 px-5 ">
+                    <img src="PPDB/images/logo smp.png" width="125" height="130" class="d-inline-block align-text-top">
+                     <p class="fw-bold mb-0 lh-1 text-center text-white ">Admin PPDB</p>
+                </div>
+            </div>
+
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard-admin') ? 'active' : ''}}" href="/dashboard-admin">
+            <p class="bg-success text-white">
               <span data-feather="home"></span>
               Dashboard
+            </p>
             </a>
           </li>
           <li class="nav-item">

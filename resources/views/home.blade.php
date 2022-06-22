@@ -1,6 +1,4 @@
 @extends('layouts.main')
-
-
 @section('container')
 
     <br><br>
@@ -40,17 +38,17 @@
 
     {{-- <div class="container-xs"> --}}
         {{-- PRESTASI --}}
-        <div class="mt-4 p-5 bg-light text-white rounded row">
+        {{-- <div class="mt-4 p-5 bg-light rounded row center">
             <div class="col-xl-3 col-lg-6 col-sm-6" style="padding: 4px">
-                <div class="card" style="border-radius: 0%;">
+                <div class="" style="border-radius: 0%;">
                         <div class="new-arrival-product">
                             <div class="new-arrivals-img-content">
-                                <img class="img-fluid" src="{{ asset('PPDB/images/juara1.png') }}" alt="">
+                                <img class="img-fluid w-auto" src="{{ asset('PPDB/images/AlurPPDB.png') }}" alt="">
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-sm-6" style="padding: 4px">
+            </div> --}}
+            {{-- <div class="col-xl-3 col-lg-6 col-sm-6" style="padding: 4px">
                 <div class="card" style="border-radius: 0%">
                         <div class="new-arrival-product">
                             <div class="new-arrivals-img-contnent">
@@ -77,9 +75,11 @@
                             </div>
                         </div>
                 </div>
-            </div>
-            </div>
-        </div>
+            </div> --}}
+
+            {{-- </div>
+        </div> --}}
+
         {{-- End of PRESTASI --}}
 
         {{-- Ketentuan Pendaftaran --}}
@@ -96,23 +96,9 @@
                                             <div role="tabpanel" class="tab-pane fade show active" id="first">
                                                 <img class="img-fluid" src="{{ asset('PPDB/images/ketentuan.png') }}" alt="">
                                             </div>
-                                            {{-- <div role="tabpanel" class="tab-pane fade" id="second">
-                                                <img class="img-fluid" src="{{ asset('PPDB/images/ppdb2.jpeg') }}" alt="">
-                                            </div> --}}
+
                                         </div>
-                                        {{-- <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
-                                            <!-- Nav tabs -->
-                                            <ul class="nav slide-item-list mt-3" role="tablist">
-                                                <li role="presentation" class="show">
-                                                    <a href="#first" role="tab" data-bs-toggle="tab">
-                                                        <img class="img-fluid" src="{{ asset('PPDB/images/brosur1.jpeg') }}" alt="" width="50">
-                                                    </a>
-                                                </li>
-                                                <li role="presentation">
-                                                    <a href="#second" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="{{ asset('PPDB/images/brosur2.jpeg') }}" alt="" width="50"></a>
-                                                </li>
-                                            </ul>
-                                        </div> --}}
+
                                     </div>
                                     <!--Tab slider End-->
                                     <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
@@ -153,6 +139,14 @@
                                                     </div>
                                                     </div>
                                                     </div>
+                                                    <br>
+
+                                                    <button type="button" class="btn bg-success" data-mdb-toggle="modal" data-mdb-target="panduan">
+                                                        <a class="nav-link {{ ($title === "Panduan") }}" href="panduan" id="panduan">Panduan Pendaftaran</a>
+                                                      </button>
+
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -163,18 +157,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+
 @endsection
 
-@section('panduan')
-        {{-- Panduan Pendaftaran --}}
-        <div class="row">
-            <div class="new-arrivals-img-contnent">
-                    <img class="d-block w-auto h-50 items-center" src="{{ asset('PPDB/images/AlurPPDB.png') }}" alt="">
-            </div>
-             </div>
-            {{-- End of Panduan Pendaftaran --}}
-@endsection
 
 {{-- Footer --}}
 <div class="footer">
