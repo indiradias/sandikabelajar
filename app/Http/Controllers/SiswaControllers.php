@@ -16,6 +16,8 @@ class SiswaControllers extends Controller
     {
        //
 
+       return view('sisw-pendaftaran');
+
     }
 
     /**
@@ -26,7 +28,7 @@ class SiswaControllers extends Controller
     public function create()
     {
         //
-        return view('sisw.create');
+        // return view('create');
     }
 
     /**
@@ -37,8 +39,6 @@ class SiswaControllers extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // return $request->file('pasphoto')->store('pasphoto');
 
         $validatedData = $request->validate([
             'nisn' => 'required',
@@ -89,8 +89,8 @@ class SiswaControllers extends Controller
 
         Siswa::create($validatedData);
 
-        return view('dashboard.dashboard-user')->with('succes','Data Berhasil di Input');
-        //return redirect()->route('sisw.create')->with('succes','Pendaftaran Berhasil!!');
+        return view('informasi-peserta')->with('succes','Data Berhasil di Input');
+        //return redirect()->route('informasi-peserta')->with('succes','Data Berhasil di Input');
 
     }
 

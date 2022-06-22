@@ -158,8 +158,8 @@
             </li>
 
             {{-- Pendaftaran --}}
-            <li class="menu-item {{ Request::is('sisw.create') ? 'active' : ''}}">
-              <a href="/sisw/create" class="menu-link">
+            <li class="menu-item {{ Request::is('sisw') ? 'active' : ''}}">
+              <a href="/sisw" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Pendaftaran">Pendaftaran</div>
               </a>

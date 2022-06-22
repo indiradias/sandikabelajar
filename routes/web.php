@@ -67,7 +67,7 @@ Route::resource('/penilaian', PenilaianController::class); //Route resource untu
 Route::get('/penilaian/inputnilai/{nisn}', [PenilaianController::class, 'create']);
 Route::get('/penilaian/editnilai/{nisn}', [PenilaianController::class, 'edit']);
 
-Route::resource('sisw',SiswaControllers::class);
+Route::resource('/sisw', SiswaControllers::class); //Route untuk menu pendaftaran(isi form peserta)
 
 Route::get('/datapendaftar/show/{nisn}', [DataPendaftarController::class, 'show']);
 Route::get('/datapendaftar/edit/{nisn}', [DataPendaftarController::class, 'edit']);
