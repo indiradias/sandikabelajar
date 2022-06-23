@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Siswa;
+use App\Models\User;
+
 use Illuminate\Http\Request;
-use Xendit\Xendit;
+// use Xendit\Xendit;
+
+use function PHPUnit\Framework\returnSelf;
 
 class PembayaranPesertaController extends Controller
 {
@@ -13,18 +18,33 @@ class PembayaranPesertaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Siswa $request)
     {
-        //list untuk lihat virtual account yg tersedia
-        Xendit::setApiKey($this->token);
+            // Set your Merchant Server Key
+            \Midtrans\Config::$serverKey = 'SB-Mid-server-8wZQXbq4lM2yfqrn_JZF9eMM';
+            // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+            \Midtrans\Config::$isProduction = false;
+            // Set sanitization on (default)
+            \Midtrans\Config::$isSanitized = true;
+            // Set 3DS transaction for credit card to true
+            \Midtrans\Config::$is3ds = true;
 
-        $getVABanks = \Xendit\VirtualAccounts::getVABanks();
-        return response()->json([
-            'data' => $getVABanks
-        ])->setStatusCode(200);
+           $params = array(
+               'transaction_details' => array(
+                   'order_id' => rand(),
+                   'gross_amount' => 300000,
+               ),
+               'customer_details' => array(
+                   'name' => 'budi',
+                   'email' => 'indira@gmail.com',
+               )
+            );
 
-        // return view('pembayaran-peserta');
-    }
+               $snapToken = \Midtrans\Snap::getSnapToken($params); //transaction token ($snapToken)
+
+               return view('pembayaran-peserta', ['snap_token'=>$snapToken]);
+       }
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +53,7 @@ class PembayaranPesertaController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

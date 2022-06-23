@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
+use function Ramsey\Uuid\v1;
+
 class SiswaControllers extends Controller
 {
     /**
@@ -145,4 +147,21 @@ class SiswaControllers extends Controller
 
         // return redirect()->route('datapendaftar-')->with('succes','Siswa Berhasil di Hapus');
     }
-}
+
+
+    // public function cekout(Siswa $request){
+    //     $params = $request->except('_token');
+
+    //     $pembayaran = Siswa::transaction([
+    //         $pembayaran = $this->_savePembayaran($params),
+    //         $this->_generatePaymentToken($pembayaran),
+    //         $this->_savePembayaran($pembayaran, $params),
+    //     ]);
+    //     return $pembayaran;
+
+    //     // if ($pembayaran){
+
+    //     }
+
+    }
+

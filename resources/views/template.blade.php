@@ -268,8 +268,10 @@
             {{-- End Of Content Dashboard --}}
 
             {{-- Content Pembayaran --}}
+            <div><br>
             @yield('pembayaran')
             {{-- End Of Content Pembayaran --}}
+            </div>
 
             {{-- Content Pendaftaran Peserta --}}
             @yield('pendaftaran')

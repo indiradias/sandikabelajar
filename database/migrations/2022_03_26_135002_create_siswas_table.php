@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             // $table->id();
             // $table->foreignId('penilaian_id'); //  foreign key ke table penilaian
+            $table->string('pembayaran');
             $table->char('nisn')->primary()->unique();
             $table->text('nik_peserta');
             $table->text('nama_peserta');

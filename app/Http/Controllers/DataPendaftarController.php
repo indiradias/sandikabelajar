@@ -162,33 +162,33 @@ class DataPendaftarController extends Controller
         //
     }
 
-    public function verifikasistatuspendaftaran(Siswa $nisn){
+    // public function verifikasistatuspendaftaran(Siswa $nisn){
 
 
-    }
+    // }
 
-    public function notverifikasistatuspendaftaran(Siswa $nisn){
+    // public function notverifikasistatuspendaftaran(Siswa $nisn){
 
-        Siswa::where("nisn", "$nisn")->update([
-            'status_pendaftaran' => "Belum Terverifikasi"
-        ]);
-        Siswa::create([
-            'nisn' => $nisn,
-            'status' => "belum di verifikasi"
-        ]);
-        return redirect('/data-status');
-    }
+    //     Siswa::where("nisn", "$nisn")->update([
+    //         'status_pendaftaran' => "Belum Terverifikasi"
+    //     ]);
+    //     Siswa::create([
+    //         'nisn' => $nisn,
+    //         'status' => "belum di verifikasi"
+    //     ]);
+    //     return redirect('/data-status');
+    // }
 
-    public function invalidstatuspendaftaran(Siswa $nisn){
+    // public function invalidstatuspendaftaran(Siswa $nisn){
 
-        Siswa::where("nisn", "$nisn")->update([
-            'status_pendaftaran' => "Tidak Sah"
-        ]);
-        Siswa::create([
-            'nisn' => $nisn,
-            'status' => "tidak sah"
-        ]);
-        return redirect('/data-status');
-    }
+    //     Siswa::where("nisn", "$nisn")->update([
+    //         'status_pendaftaran' => "Tidak Sah"
+    //     ]);
+    //     Siswa::create([
+    //         'nisn' => $nisn,
+    //         'status' => "tidak sah"
+    //     ]);
+    //     return redirect('/data-status');
+    // }
 
 }
