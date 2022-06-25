@@ -36,7 +36,8 @@ class PembayaranPesertaController extends Controller
                ),
                'customer_details' => array(
                    'name' => 'budi',
-                   'email' => 'indira@gmail.com',
+                   'email' =>'budi@gmail.com',
+                //    'email' => $request->get('email'),
                )
             );
 
@@ -51,7 +52,7 @@ class PembayaranPesertaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Siswa $request)
     {
 
     }
@@ -110,5 +111,15 @@ class PembayaranPesertaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function payment_post(Siswa $request){
+        $json = json_decode($request->get('json')); //nama json dipanggil dari token yg awto kepanggil dari API
+        $order = new Siswa();
+        $order->pembayaran = $json->transaction_status; //stts pembayaran
+        $order->transaction_id = $json->transaction_id;
+        $order->order_id = $json->order_id;
+
+        return $order->save() ? redirect(url('/pembayaran'))->with('aler-success', 'Pembayaran Anda Berhasil!') : redirect(url('/pembayaran'))->with('aler-failde', 'Terjadi Kesalahan!');
     }
 }

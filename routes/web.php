@@ -86,6 +86,7 @@ Route::get('/data-status', [DataPendaftarController::class, 'index']);
 Route::resource('/informasi', InformasiPesertaController::class); //Route untuk menu informasi
 
 Route::resource('/pembayaran', PembayaranPesertaController::class); //Route untuk menu Pembayaran
+Route::post('/pembayaran', [PembayaranPesertaController::class, 'payment_post']); //Route untuk menu Pembayaran
 
 
 

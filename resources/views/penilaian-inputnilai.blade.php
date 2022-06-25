@@ -94,7 +94,6 @@
     @endif
 
     {{-- <form action="{{ route('sisw.update',$nisn) }}" method="POST">
-
         @csrf
         @method('PUT') --}}
 

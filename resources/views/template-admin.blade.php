@@ -1,111 +1,204 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Sistem PPDB | Dashboard Admin</title>
 
-    <!-- Bootstrap core CSS -->
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
-  </head>
-  <body>
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-<header class="navbar navbar-dark sticky-top bg-success link flex-md-nowrap p-0 shadow">
+</head>
 
-  <a class="navbar-brand col-md-4 col-lg-2 me-0 px-3 ">PPDB SMP Al-Azhar Muncar </a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<body id="page-top">
 
-  <div class="navbar-nav">
-    <div class="nav-item text-nowrap">
-      {{-- Logout --}}
-      <form action="/logout" method="post">
-        @csrf
-        <button type="submit" class="nav-link px-3 bg-success link border-0">
-            <i class="bi bi-box-arrow-right"></i>
-                    <p class="bg-success text-white px-3">Logout</p>
-        </button>
-      </form>
-      {{-- End of Logout --}}
-    </div>
-  </div>
-</header>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-<div class="container-fluid">
-  <div class="row">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
-    {{-- SIDEBAR --}}
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-success link sidebar collapse">
+            <!-- Sidebar - Brand -->
+            <div class="slider">
+                <div class="slider-head">
+                    <div class="d-block pt-4 pb-3 px-5 ">
+                        <img src="PPDB/images/logo smp.png" width="130" height="135" class="d-inline-block align-text-top">
+                         <p class="fw-bold mb-0 lh-1 text-bold text-center text-white ">PPDB Al-Azhar Muncar</p>
+                    </div>
+                </div>
 
-        <div class="slider">
-            <div class="slider-head">
-                <div class="d-block pt-4 pb-3 px-5 ">
-                    <img src="PPDB/images/logo smp.png" width="125" height="130" class="d-inline-block align-text-top">
-                     <p class="fw-bold mb-0 lh-1 text-center text-white ">Admin PPDB</p>
+            <div class="position-sticky pt-3">
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+
+                    <li class="nav-item active">
+                        <a class="nav-link {{ Request::is('dashboard-admin') ? 'active' : ''}}" href="/dashboard-admin">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Dashboard</span></a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link {{ Request::is('datapendaftar*') ? 'active' : ''}}" href="/datapendaftar">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Data Pendaftar</span></a>
+                    </li>
+
+                  <li class="nav-item active">
+                    <a class="nav-link {{ Request::is('penilaian*') ? 'active' : ''}}" href="/penilaian">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Penilaian</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link {{ Request::is('peserta-diterima') ? 'active' : ''}}" href="/peserta-diterima">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Peserta Diterima</span></a>
+                </li>
+
+                </ul>
+              </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-warning topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit" class="nav-link px-2 bg-warning link border-0">
+                                        <span class="mr-2 d-none d-lg-inline text-grey text-bold ">Logout</span>
+                                    </button>
+                                  </form>
+
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            {{-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div> --}}
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+
+                <div class="container-fluid">
+
+
+                    <!-- Content Dashboard -->
+                    @yield('dashboard-admin')
+                    <!-- Content Dashboard -->
+
+                    @yield('datapendaftar-admin')
+
+                    @yield('penilaian-admin')
+                    @yield('inputnilai-admin')
+                    @yield('peserta-diterima-admin')
+
+                </div>
+                <!-- /.container-fluid -->
+
+
+            </div>
+            <!-- End of Main Content -->
+
+            {{-- Footer --}}
+            <footer
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright  <script>
+                        document.write(new Date().getFullYear())
+                    </script> </span>
                 </div>
             </div>
+        </footer>
+            {{-- End of Footer --}}
 
-      <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('dashboard-admin') ? 'active' : ''}}" href="/dashboard-admin">
-            <p class="bg-success text-white">
-              <span data-feather="home"></span>
-              Dashboard
-            </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('datapendaftar') ? 'active' : ''}}" href="/datapendaftar">
-              <span data-feather="database"></span>
-             Data Pendaftar
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('penilaian') ? 'active' : ''}}" href="/penilaian">
-              <span data-feather="divide-square"></span>
-              Penilaian
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="credit-card"></span>
-              Peserta Diterima
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-{{-- END OF SIDEBAR --}}
+        </div>
+        <!-- End of Content Wrapper -->
 
-{{-- Content --}}
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    </div>
+    <!-- End of Page Wrapper -->
 
-    @yield('dashboard-admin')
-    @yield('datapendaftar-admin')
-    @yield('datapendaftar-show')
-    @yield('penilaian-admin')
-    @yield('peserta-diterima-admin')
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  </main>
-{{-- End Of Content --}}
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-</div>
-</div>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
 
- <!-- JavaScript Bundle with Popper -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
- <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
- {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script> --}}
- <script src="/js/dashboard.js"></script>
 </body>
+
 </html>

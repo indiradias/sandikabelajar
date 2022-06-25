@@ -43,6 +43,7 @@ class SiswaControllers extends Controller
     {
 
         $validatedData = $request->validate([
+            // 'pembayaran' => 'required',
             'nisn' => 'required',
             // 'user_id' => auth()->id(),
             'nik_peserta' => 'required',

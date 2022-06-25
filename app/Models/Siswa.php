@@ -15,9 +15,14 @@ class Siswa extends Model
     protected $primaryKey = 'nisn';
     protected $cast = ['nisn' => 'char'];
 
+
+
     protected $fillable = [
             // 'user_id',
             'pembayaran',
+            'transaction_id',
+            'order_id',
+
             'nisn',
             'nik_peserta',
             'nama_peserta',
@@ -40,7 +45,6 @@ class Siswa extends Model
             'ktp_orangtua',
             'kartu_keluarga',
             'raport',
-            'sertifikat_prestasi',
     ];
 
     public $guarded = 'sertifikat_prestasi';

@@ -2,15 +2,18 @@
 @section('penilaian-admin')
 {{-- CONTENT --}}
 
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Penilaian Peserta</h1>
-      </div>
+      <!-- Page Heading -->
+     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Penilaian Admin</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
 
       {{-- Menu Search--}}
       <form action="{{ url()->current() }}"
         method="get">
-      <div class="row">
-      <div class="col-md-3">
+      <div class="row-mb-2">
+      <div class="col-mb-3">
         <div class="input-group mb-4">
         <input type="search" class="from-control" placeholder="search..." name="keywoard" value="{{ request('keyword') }}">
         <button class="btn btn-success link" type="submit">Search</button>
@@ -20,7 +23,7 @@
       {{-- End Off Menu Search --}}
 
       {{-- Tampilan Tabel Data Pendaftar --}}
-      <div class="card">
+      <div class="card-body">
 
         <div class="table-responsive text-nowrap">
             @if ($message = Session::get('succes'))
@@ -28,14 +31,14 @@
                     <p>{{ $message }}</p>
                 </div>
              @endif
-          <table class="table table-stripped table-md table-responsive" id="DataTables">
+          <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>NISN</th>
                     <th>Nik Peserta</th>
                     <th>Nama Peserta</th>
-                    <th>JK</th>
+                    <th>Jenis Kelamin</th>
                     <th>Nilai</th>
                     <th class="text-center">Action</th>
                 </tr>

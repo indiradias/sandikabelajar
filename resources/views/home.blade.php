@@ -141,11 +141,9 @@
                                                     </div>
                                                     <br>
 
-                                                    <button type="button" class="btn bg-success" data-mdb-toggle="modal" data-mdb-target="panduan">
-                                                        <a class="nav-link {{ ($title === "Panduan") }}" href="panduan" id="panduan">Panduan Pendaftaran</a>
-                                                      </button>
-
-
+                                                    <td class="text-center">
+                                                        <a class="btn btn-warning {{ ($title === "Panduan") }}" href="PPDB/images/panduan.png" id="panduan">Panduan Pendaftaran</a>
+                                                    </td>
 
                                                 </div>
                                             </div>
