@@ -18,7 +18,15 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    {{-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> --}}
+    {{-- <link href="/css/dashboard.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
+
+
 
 </head>
 
@@ -34,8 +42,8 @@
             <div class="slider">
                 <div class="slider-head">
                     <div class="d-block pt-4 pb-3 px-5 ">
-                        <img src="PPDB/images/logo smp.png" width="130" height="135" class="d-inline-block align-text-top">
-                         <p class="fw-bold mb-0 lh-1 text-bold text-center text-white ">PPDB Al-Azhar Muncar</p>
+                        <img src= "{{ asset('PPDB/images/logo smp.png') }}" width="130" height="135" class="d-inline-block align-text-top">
+                         <p class="fw-bold mb-0 lh-1 text-bold text-center text-white ">Admin PPDB</p>
                     </div>
                 </div>
 
@@ -147,6 +155,7 @@
                     <!-- Content Dashboard -->
 
                     @yield('datapendaftar-admin')
+                    @yield('datapendaftar-show')
 
                     @yield('penilaian-admin')
                     @yield('inputnilai-admin')
@@ -165,7 +174,7 @@
                 <div class="copyright text-center my-auto">
                     <span>Copyright  <script>
                         document.write(new Date().getFullYear())
-                    </script> </span>
+                    </script> Penerimaan Peserta Didik Baru SMP Al-Azhar Muncar</span>
                 </div>
             </div>
         </footer>
@@ -198,6 +207,14 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('js/dashboard.js') }}"></script>
+
+    <script src="https://kit.fontawesome.com/f18d3773ef.js" crossorigin="anonymous"></script>
 
 </body>
 
