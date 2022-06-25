@@ -47,7 +47,7 @@
             @foreach ($sisw as $index => $siswa)
 
             <tr>
-                <td class="text-center">{{ ++$i }}</td>
+                <td>{{ $index + $sisw->firstItem() }}</td>
                 <td>{{ $siswa->nisn}}</td>
                 <td>{{ $siswa->nik_peserta}}</td>
                 <td>{{ $siswa->nama_peserta}}</td>
@@ -78,7 +78,20 @@
             </tr>
             @endforeach
           </table>
-          {!! $sisw->links() !!}
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            {!! $sisw->links() !!}
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start text-gray-600 fs-6">
+              <p>Menampilkan</p>
+               {{ $sisw->firstItem() }}
+               <p>-</p>
+               {{ $sisw->lastItem() }}
+               <p>dari</p>
+               {{ $sisw->total() }}
+               <p>data</p>
+             </div>
+
+
 
       {{-- End Of Tampilan Tabel Data Pendaftar --}}
 
