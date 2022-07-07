@@ -84,9 +84,10 @@ class PenilaianController extends Controller
 
 
         penilaian::insert($penilaian);
+        // Siswa::all()->orderBy('nilai', 'desc');
 
 
-        return redirect('penilaian')->with('succes','Data Nilai Berhasil di Input');
+        return redirect('penilaian')->with('succes','Berhasil Menambahkan Nilai');
     }
 
     /**

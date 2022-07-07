@@ -57,7 +57,7 @@
                 <ul class="nav flex-column">
 
                     <li class="nav-item active">
-                        <a class="nav-link {{ Request::is('dashboard-admin') ? 'active' : ''}}" href="/dashboard-admin">
+                        <a class="nav-link {{ Request::is('/dashboard-admin') ? 'active' : ''}}" href="/dashboard-admin">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
@@ -112,7 +112,8 @@
                                 <form action="/logout" method="post">
                                     @csrf
                                     <button type="submit" class="nav-link px-2 bg-warning link border-0">
-                                        <span class="mr-2 d-none d-lg-inline text-grey text-bold ">Logout</span>
+                                        <i class="fas fa-sign-out-alt text-white"> </i>
+                                        <span class="mr-2 d-none d-lg-inline text-white text-bold ">Logout</span>
                                     </button>
                                   </form>
 
@@ -174,7 +175,7 @@
                 <div class="copyright text-center my-auto">
                     <span>Copyright  <script>
                         document.write(new Date().getFullYear())
-                    </script> Penerimaan Peserta Didik Baru SMP Al-Azhar Muncar</span>
+                    </script> | Penerimaan Peserta Didik Baru SMP Al-Azhar Muncar</span>
                 </div>
             </div>
         </footer>
@@ -214,7 +215,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
 
-    <script src="https://kit.fontawesome.com/f18d3773ef.js" crossorigin="anonymous"></script>   
+    <script src="https://kit.fontawesome.com/f18d3773ef.js" crossorigin="anonymous"></script>
 
 </body>
 

@@ -14,7 +14,7 @@
             </div>
             <div >
                 <span style="display: inline">
-                    <a class="btn btn-secondary" style="width: 75px;" href="javascript:history.go(-1)"> Back</a>
+                    <a class="btn btn-secondary" style="width: 80px;" href="javascript:history.go(-1)">Kembali</a>
                 </span>
                     {{-- <form action="{{ route('datapendaftar.update', $nisn) }}" method="post"
                         enctype="multipart/form-data"

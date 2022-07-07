@@ -152,7 +152,7 @@
               <div class="card-body demo-vertical-spacing demo-only-element">
 
                 <div class="form-group">
-                    <strong>Pas Photo</strong>
+                    <strong>Pas Photo (3x4)</strong>
                   <input type="file" class="form-control" id="pasphoto" name="pasphoto"/>
                 </div>
 

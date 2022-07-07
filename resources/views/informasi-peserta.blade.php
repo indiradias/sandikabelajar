@@ -29,8 +29,8 @@
 
                     {{-- Menu Cetak Formulir --}}
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#cetakformulir" role="tab">Cetak Formulir</a>
-
+                            {{-- <a class="nav-link" data-bs-toggle="tab" href="/cetakformulir" class="btn btn-sm btn-success">Cetak Formulir</a> --}}
+                            <a class="btn btn-primary" href="/cetakformulir" class="btn btn-sm btn-success">Cetak Formulir</a>
                         </li>
                         {{-- End Of Menu Cetak Formulir --}}
 

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siswa;
+use Barryvdh\DomPDF\PDF;
+
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+
 
 class InformasiPesertaController extends Controller
 {
@@ -98,5 +102,14 @@ class InformasiPesertaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //untuk eksport PDF pada cetak formulir
+    public function cetakformulir(Siswa $siswa){
+        $siswa = Siswa::all();
+        view()->share('peserta', $siswa);
+        $pdf = PDF::loadview('cetak-formulir-pendaftaran.pdf');
+
+        return $pdf->download('cetakformulir_peserta.pdf');
     }
 }

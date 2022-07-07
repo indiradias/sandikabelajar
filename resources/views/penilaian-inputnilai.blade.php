@@ -9,7 +9,7 @@
       <div class="row mt-5 mb-5">
         <div class="col-lg-12 margin-tb">
             <div class="">
-                <a class="btn btn-secondary" href="javascript:history.go(-1)"> Back</a>
+                <a class="btn btn-secondary wd-80" href="javascript:history.go(-1)">Kembali</a>
             </div>
         </div>
     </div>
