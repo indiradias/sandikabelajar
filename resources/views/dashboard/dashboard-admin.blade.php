@@ -1,4 +1,4 @@
-@extends('template-admin')
+@extends('layouts.Admin')
 @section('dashboard-admin')
 {{-- CONTENT --}}
 
@@ -17,7 +17,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Jumlah Pendaftar</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $jumlah }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -82,7 +82,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                Data nilai yang sudah dimasukkan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $nilai }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-clipboard-check fa-2x text-gray-300"></i>

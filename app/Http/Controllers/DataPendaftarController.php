@@ -21,12 +21,12 @@ class DataPendaftarController extends Controller
         $keyword = $request->keywoard;
         $sisw   = Siswa::where(function ($query) use ($keyword) {
             return $query
-                ->where('nama_peserta', 'like', "%".$keyword."%")
-                ->orWhere('nisn', 'like', "%".$keyword."%")
-                ->orWhere('nik_peserta', 'like', "%".$keyword."%");
+                ->where('nama_peserta', 'like', "%" . $keyword . "%")
+                ->orWhere('nisn', 'like', "%" . $keyword . "%")
+                ->orWhere('nik_peserta', 'like', "%" . $keyword . "%");
         })->orderBy('created_at', 'desc')->paginate(5);
 
-        return view ('datapendaftar-admin',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 5);
+        return view('Admin/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 5);
         //return view ('datapendaftar-admin',compact('sisw'));
 
         // if($request->has('search')){
@@ -46,7 +46,6 @@ class DataPendaftarController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -79,7 +78,7 @@ class DataPendaftarController extends Controller
         ]);
         Siswa::create($request->all());
 
-        return redirect()->route('datapendaftar-admin')->with('succes','Data Berhasil di Input');
+        return redirect()->route('datapendaftar-admin')->with('succes', 'Data Berhasil di Input');
     }
 
     /**
@@ -88,9 +87,10 @@ class DataPendaftarController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function show(Siswa $nisn)
+    public function show($id)
     {
-        return view('datapendaftar-show', $nisn);
+        $siswa = Siswa::find($id);
+        return view('Admin/Show', compact('siswa'));
     }
 
     /**
@@ -101,9 +101,6 @@ class DataPendaftarController extends Controller
      */
     public function edit(Siswa $nisn)
     {
-
-        return view('datapendaftar-edit', $nisn);
-
     }
 
     /**
@@ -113,42 +110,16 @@ class DataPendaftarController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $nisn)
+    public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'nisn' => $nisn,
-        //     'nik_peserta' => 'required',
-        //     'nama_peserta' => 'required',
-        //     'jenis_kelamin' => 'required',
-        //     'tempat_lahir' => 'required',
-        //     'tanggal_lahir' => 'required',
-        //     'asal_sekolah' => 'required',
-        //     'alamat_peserta' => 'required',
-        //     'nama_ayah' => 'required',
-        //     'nama_ibu' => 'required',
-        //     'nik_ayah' => 'required|numeric',
-        //     'nik_ibu' => 'required|numeric',
-        //     'pekerjaan_ayah' => 'required',
-        //     'pekerjaan_ibu' => 'required',
-        //     'alamat_orangtua' => 'required',
-        //     'noHp_orangtua' => 'required|numeric',
-        // ]);
-
-        // $sisw = Siswa::where('nisn', $nisn)->firstOrFail();
-        // $sisw->nisn = $nisn;
-        // $sisw->nama_peserta = $request->get('nama_peserta');
-        // $sisw->alamat_peserta = $request->get('alamat_peserta');
-        // $sisw->save();
-
-        // return redirect()
-        // ->route('datapendaftar.index')
-        // ->with('succes','Data Pendaftar Berhasil di Update!!');
-
-        Siswa::where("nisn", $nisn)->update([
-            'status_pendaftaran' => $request->status_pendaftaran,
+        $request->validate([
+            'status_pendaftaran' => 'required',
         ]);
 
-        return redirect()->route('datapendaftar.index');
+        Siswa::where('id', $id)->update(['status_pendaftaran' => $request->status_pendaftaran]);
+
+        return redirect()->route('Admin/Index')
+            ->with('success', 'Product updated successfully');
     }
 
     /**

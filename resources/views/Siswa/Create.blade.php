@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layouts.Sidebar')
 @section ('header')
 <span class="app-brand-text demo menu-text fw-bolder ms-2">Form Pendaftaran</span>
 
@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form action="{{ route('sisw.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('siswa.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     {{-- Data Peserta Template --}}
@@ -49,7 +49,11 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Jenis Kelamin</strong>
-                            <input type="text" name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" value="{{ old('jenis_kelamin') }}">
+                            <select class="form-select" aria-label="Default select example" name="jenis_kelamin">
+                                <option selected>Pilih Jenis Kelamin</option>
+                                <option value="Perempuan">Perempuan</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                              </select>
                         </div>
                     </div>
 
@@ -62,7 +66,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Tanggal Lahir</strong>
-                            <input type="text" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="{{ old('tanggal_lahir') }}">
+                            <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="{{ old('tanggal_lahir') }}">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">

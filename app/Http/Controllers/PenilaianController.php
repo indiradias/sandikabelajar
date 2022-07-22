@@ -35,9 +35,9 @@ class PenilaianController extends Controller
             else
                 $siswa->nilai = 0;
         }
-        // $sisw = $sisw->orderBy("nilai");
+        // $sisw = $sisw->sortBy("nilai");
 
-        return view ('penilaian-admin',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 5);
+        return view ('Penilaian/Index',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 5);
     }
 
     /**
@@ -45,9 +45,9 @@ class PenilaianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($nisn)
+    public function create($id)
     {
-        return view('penilaian-inputnilai', ['nisn' => $nisn]);
+
     }
 
     /**
@@ -66,17 +66,17 @@ class PenilaianController extends Controller
 
         $penilaian = [
             [
-                'nisn' => $request->get('nisn'),
+                'siswa_id' => $request -> get('siswa_id'),
                 'nilai' => $request->get('tes_wawancara'),
                 'jenis_tes_id' => 1, // wawancara
             ],
             [
-                'nisn' => $request->get('nisn'),
+                'siswa_id' => $request -> get('siswa_id'),
                 'nilai' => $request->get('tes_tulis'),
                 'jenis_tes_id' => 2, // tulis
             ],
             [
-                'nisn' => $request->get('nisn'),
+                'siswa_id' => $request -> get('siswa_id'),
                 'nilai' => $request->get('tes_mengaji'),
                 'jenis_tes_id' => 3, // mengaji
             ]
@@ -98,7 +98,8 @@ class PenilaianController extends Controller
      */
     public function show($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        return view('Penilaian/Create', compact('siswa'));
     }
 
     /**

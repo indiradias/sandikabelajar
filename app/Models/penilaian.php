@@ -11,12 +11,12 @@ class penilaian extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nisn',
+        'siswa_id',
         'jenis_tes_id',
         'nilai'
     ];
     public function getSiswa() {
-        return $this->belongsTo('App\Models\Siswa', 'nisn', 'nisn');
+        return $this->belongsTo(Siswa::class);
     }
 }
 

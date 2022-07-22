@@ -1,4 +1,4 @@
-@extends('template-admin')
+@extends('layouts.Admin')
 @section('datapendaftar-admin')
 
 {{-- CONTENT --}}
@@ -58,7 +58,7 @@
 
                 {{-- Action --}}
                 <td class="text-center">
-                    <a class="btn btn-warning" href="/datapendaftar/show/{{ $siswa->nisn}}" class="btn btn-sm btn-success">Lihat Data Peserta</a>
+                    <a class="btn btn-warning" href="{{ route('datapendaftar.show',$siswa->id) }}" class="btn btn-sm btn-success">Lihat Data Peserta</a>
                     {{-- <a class="btn btn-warning" href="/datapendaftar/edit/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Edit</a> --}}
                 </td>
 

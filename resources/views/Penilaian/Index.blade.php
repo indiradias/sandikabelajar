@@ -1,11 +1,11 @@
-@extends('template-admin')
+@extends('layouts.Admin')
 @section('penilaian-admin')
 {{-- CONTENT --}}
 
       <!-- Page Heading -->
      <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Penilaian Admin</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="/pesertaditerima" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-calculator fa-sm text-white-50"></i> Generate Nilai</a>
     </div>
 
@@ -47,7 +47,7 @@
             @foreach ($sisw as $index => $siswa)
 
             <tr>
-                <td>{{ $index + $sisw->firstItem() }}</td>
+                {{-- <td>{{ $index + $sisw->firstItem() }}</td> --}}
                 <td>{{ $siswa->nisn}}</td>
                 <td>{{ $siswa->nik_peserta}}</td>
                 <td>{{ $siswa->nama_peserta}}</td>
@@ -62,7 +62,7 @@
                     {{-- <a class="btn btn-success link" href="/datapendaftar/show/{{ $siswa->nisn}}" class="btn btn-sm btn-success">Nilai</a> --}}
 
                     @if (empty($siswa->nilai))
-                        <a class="btn btn-warning" href="/penilaian/inputnilai/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Input Nilai</a>
+                        <a class="btn btn-warning" href="{{ route('penilaian.show',$siswa->id) }}" class="btn btn-sm btn-warning">Input Nilai</a>
                     @else
                         {{-- <a class="btn btn-success link" href="/penilaian/editnilai/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Edit Nilai</a> --}}
                         {{-- <a class="btn btn-primary" href="" class="btn btn-sm btn-warning">Nilai Sudah Tersedia</a> --}}
