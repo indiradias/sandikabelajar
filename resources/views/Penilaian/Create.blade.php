@@ -1,4 +1,4 @@
-@extends('template-admin')
+@extends('layouts.Admin')
 @section('inputnilai-admin')
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -35,8 +35,8 @@
             @csrf
             <input
                 type="text"
-                name="nisn"
-                value="{{ $nisn }}"
+                name="siswa_id"
+                value="{{ $siswa->id }}"
                 style="display:none;"
             >
         <div class="row">

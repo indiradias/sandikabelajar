@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use function Ramsey\Uuid\v1;
 
 class SiswaControllers extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,10 +18,9 @@ class SiswaControllers extends Controller
      */
     public function index()
     {
-       //
-
-       return view('sisw-pendaftaran');
-
+        //buat di  menu informasi bagian (sedang berjalan)
+        $siswa = Siswa::with('user')->where('user_id', Auth::user()->id)->get();
+        return view('Siswa/Index', compact('siswa'));
     }
 
     /**
@@ -29,8 +30,14 @@ class SiswaControllers extends Controller
      */
     public function create()
     {
-        //
-        // return view('create');
+        $siswa = Siswa::with('user')->where('user_id', Auth::user()->id)->count();
+        if($siswa >= 1){
+            return view('Siswa/Index2');
+        }
+        else{
+            return view('Siswa/Create');
+        }
+
     }
 
     /**
@@ -41,58 +48,34 @@ class SiswaControllers extends Controller
      */
     public function store(Request $request)
     {
-
-        $validatedData = $request->validate([
-            // 'pembayaran' => 'required',
-            'nisn' => 'required',
-            // 'user_id' => auth()->id(),
-            'nik_peserta' => 'required',
-            'nama_peserta' => 'required',
-            'jenis_kelamin' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'asal_sekolah' => 'required',
-            'alamat_peserta' => 'required',
-            'nama_ayah' => 'required',
-            'nama_ibu' => 'required',
-            'nik_ayah' => 'required',
-            'nik_ibu' => 'required',
-            'pekerjaan_ayah' => 'required',
-            'pekerjaan_ibu' => 'required',
-            'alamat_orangtua' => 'required',
-            'noHp_orangtua' => 'required',
+        Siswa::insert([
+            'user_id' => auth()->id(), //untuk ngambil id yg login
+            'nisn' => $request -> input('nisn'),
+            'nik_peserta' => $request -> input('nik_peserta'),
+            'nama_peserta' => $request -> input('nama_peserta'),
+            'jenis_kelamin' => $request -> input('jenis_kelamin'),
+            'tempat_lahir' => $request -> input('tempat_lahir'),
+            'tanggal_lahir' => $request -> input('tanggal_lahir'),
+            'asal_sekolah' => $request -> input('asal_sekolah'),
+            'alamat_peserta' => $request -> input('alamat_peserta'),
+            'nama_ayah' => $request -> input('nama_ayah'),
+            'nama_ibu' => $request -> input('nama_ibu'),
+            'nik_ayah' => $request -> input('nik_ayah'),
+            'nik_ibu' => $request -> input('nik_ibu'),
+            'pekerjaan_ayah' => $request -> input('pekerjaan_ayah'),
+            'pekerjaan_ibu' => $request -> input('pekerjaan_ibu'),
+            'alamat_orangtua' => $request -> input('alamat_orangtua'),
+            'noHp_orangtua' => $request -> input('noHp_orangtua'),
             'status_pendaftaran' => 'Belum Terverifikasi',
-            'pasphoto' => 'image|file|max:1024',
-            'akta_peserta' => 'required|file|max:1024',
-            'ktp_orangtua' => 'required|file|max:1024',
-            'kartu_keluarga' => 'required|file|max:1024',
-            'raport' => 'required|file|max:1024',
-            'sertifikat_prestasi' => 'file|max:1024',
+            'pasphoto' => $request -> file('pasphoto') ? $request -> file('pasphoto') -> store('pasphoto', 'public') : null,
+            'akta_peserta' => $request -> file('akta_peserta') ? $request -> file('akta_peserta') -> store('akta_peserta', 'public') : null,
+            'ktp_orangtua' => $request -> file('ktp_orangtua') ? $request -> file('ktp_orangtua') -> store('ktp_orangtua', 'public') : null,
+            'kartu_keluarga' => $request -> file('kartu_keluarga') ? $request -> file('kartu_keluarga') -> store('kartu_keluarga', 'public') : null,
+            'raport' => $request -> file('raport') ? $request -> file('raport') -> store('raport', 'public') : null,
+            'sertifikat_prestasi' => $request -> file('sertifikat_prestasi') ? $request -> file('sertifikat_prestasi') -> store('sertifikat_prestasi', 'public') : null,
         ]);
 
-        //$file = $request->file('pasphoto');
-        if($request->file('pasphoto')) {
-            $validatedData['pasphoto'] = $request->file('pasphoto')->store('pasphoto');
-        }
-        if($request->file('akta_peserta')) {
-            $validatedData['akta_peserta'] = $request->file('akta_peserta')->store('akta_peserta');
-        }
-        if($request->file('ktp_orangtua')) {
-            $validatedData['ktp_orangtua'] = $request->file('ktp_orangtua')->store('ktp_orangtua');
-        }
-        if($request->file('kartu_keluarga')) {
-            $validatedData['kartu_keluarga'] = $request->file('kartu_keluarga')->store('kartu_keluarga');
-        }
-        if($request->file('raport')) {
-            $validatedData['raport'] = $request->file('raport')->store('raport');
-        }
-        if($request->file('sertifikat_prestasi')) {
-            $validatedData['sertifikat_prestasi'] = $request->file('sertifikat_prestasi')->store('sertifikat_prestasi');
-        }
-
-        Siswa::create($validatedData);
-
-        return view('informasi-peserta')->with('succes','Data Berhasil di Input');
+        return view('dashboard/dashboard-user')->with('succes','Data Berhasil di Input');
         //return redirect()->route('informasi-peserta')->with('succes','Data Berhasil di Input');
 
     }
@@ -103,12 +86,10 @@ class SiswaControllers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Siswa $sisw)
+    public function show($id)
     {
-        //
-        return view('datapendaftar-show', [
-            'siswa' => $sisw
-        ]);
+        $siswa = Siswa::find($id);
+        return view('Siswa/Show', compact('siswa'));
     }
 
     /**
@@ -117,10 +98,11 @@ class SiswaControllers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Siswa $sisw)
+    public function edit($id)
     {
-        $sisw = Siswa::latest()->paginate(5);
-        return view ('datapendaftar-edit', compact('datapendaftar-edit'));
+        //buat cetak formulir
+        $siswa = Siswa::find($id);
+        return view('Siswa/Cetak', compact('siswa'));
     }
 
     /**
@@ -150,19 +132,6 @@ class SiswaControllers extends Controller
     }
 
 
-    // public function cekout(Siswa $request){
-    //     $params = $request->except('_token');
-
-    //     $pembayaran = Siswa::transaction([
-    //         $pembayaran = $this->_savePembayaran($params),
-    //         $this->_generatePaymentToken($pembayaran),
-    //         $this->_savePembayaran($pembayaran, $params),
-    //     ]);
-    //     return $pembayaran;
-
-    //     // if ($pembayaran){
-
-    //     }
-
     }
+
 

@@ -129,7 +129,7 @@
               </span>
 
 
-              <img src="PPDB/images/logo smp.png" width="40" height="40" class="d-inline-block align-text-top">
+              <img src="{{ asset('PPDB/images/logo smp.png') }}" width="40" height="40" class="d-inline-block align-text-top">
               <span class="app-brand-text menu-text fw-bolder ms-2">PPDB Online</span>
             </a>
 
@@ -158,16 +158,16 @@
             </li>
 
             {{-- Pendaftaran --}}
-            <li class="menu-item {{ Request::is('sisw') ? 'active' : ''}}">
-              <a href="/sisw" class="menu-link">
+            <li class="menu-item {{ Request::is('siswa/create') ? 'active' : ''}}">
+              <a href="/siswa/create" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Pendaftaran">Pendaftaran</div>
               </a>
             </li>
 
             {{-- Informasi --}}
-            <li class="menu-item {{ Request::is('informasi') ? 'active' : ''}}">
-              <a href="/informasi" class="menu-link">
+            <li class="menu-item {{ Request::is('siswa') ? 'active' : ''}}">
+              <a href="/siswa" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Informasi</div>
               </a>
@@ -226,18 +226,18 @@
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
-                    <li>
+                    {{-- <li>
                       <a class="dropdown-item" href="#">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
                       </a>
                     </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
+                    <li> --}}
+                      {{-- <a class="dropdown-item" href="#">
                         <i class="bx bx-cog me-2"></i>
                         <span class="align-middle">Settings</span>
                       </a>
-                    </li>
+                    </li> --}}
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>

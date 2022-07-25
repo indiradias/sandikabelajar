@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('transaction_id');
             $table->string('order_id');
 
-            $table->char('nisn')->primary()->unique();
+            $table->id();
+            $table->foreignId('user_id')->constrained(); //foreign key user id. User-Siswa
+            $table->char('nisn');
             $table->text('nik_peserta');
             $table->text('nama_peserta');
             $table->text('jenis_kelamin');
@@ -42,7 +44,7 @@ return new class extends Migration
             $table->string('ktp_orangtua');
             $table->string('kartu_keluarga');
             $table->string('raport');
-            $table->string('sertifikat_prestasi');
+            $table->string('sertifikat_prestasi')->nullable();
             $table->timestamps();
         });
     }

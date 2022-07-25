@@ -8,9 +8,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RedirectsController;
 use App\Http\Controllers\DataPendaftarController;
 use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\PesertaDiterimaController;
 use App\Http\Controllers\SiswaControllers;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\InformasiPesertaController;
+use App\Http\Controllers\PaymentGatewayController;
 use App\Http\Controllers\PembayaranPesertaController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -69,25 +71,19 @@ Route::get('/dashboard-user', function(){
 });
 
 Route::resource('/datapendaftar', DataPendaftarController::class); //Route untuk ke menu data pendaftar (admin)
-Route::resource('/penilaian', PenilaianController::class); //Route resource untuk penilaian
-
-Route::get('/penilaian/inputnilai/{nisn}', [PenilaianController::class, 'create']);
-Route::get('/penilaian/editnilai/{nisn}', [PenilaianController::class, 'edit']);
-
-Route::resource('/sisw', SiswaControllers::class); //Route untuk menu pendaftaran(isi form peserta)
-
-Route::get('/datapendaftar/show/{nisn}', [DataPendaftarController::class, 'show']);
-Route::get('/datapendaftar/edit/{nisn}', [DataPendaftarController::class, 'edit']);
-Route::post('/datapendaftar{sisw}', [DataPendaftarController::class, 'verifikasistatuspendaftaran']);
+Route::resource('/penilaian', PenilaianController::class);
+Route::resource('/pesertaditerima', PesertaDiterimaController::class); //Route resource untuk penilaian
+Route::resource('/siswa', SiswaControllers::class); //Route untuk menu pendaftaran(isi form peserta)
 
 Route::get('/data-status', [DataPendaftarController::class, 'index']);
 // Route::post('/data-status{nisn}', [DataPendaftarController::class, 'verifikasistatuspendaftaran']);
 
-Route::resource('/pembayaran', PembayaranPesertaController::class); //Route untuk menu Pembayaran
-Route::post('/pembayaran', [PembayaranPesertaController::class, 'payment_post']); //Route untuk menu Pembayaran
+// Route::resource('/pembayaran', PembayaranPesertaController::class); //Route untuk menu Pembayaran
+Route::resource('/pembayaran', PaymentGatewayController::class);
+// Route::post('/pembayaran', [PembayaranPesertaController::class, 'payment_post']); //Route untuk menu Pembayaran
 
 Route::resource('/informasi', InformasiPesertaController::class); //Route untuk menu informasi
-Route::get('/cetakformulir', [InformasiPesertaController::class, 'cetakformulir'])->name('cetakformulir');
+Route::get('/cetak', [SiswaControllers::class, 'cetak'])->name('cetak');
 
 
 

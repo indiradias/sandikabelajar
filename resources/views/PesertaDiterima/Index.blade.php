@@ -1,10 +1,10 @@
-@extends('template-admin')
-@section('penilaian-admin')
+@extends('layouts.Admin')
+@section('peserta-diterima-admin')
 {{-- CONTENT --}}
 
       <!-- Page Heading -->
-     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Penilaian Admin</h1>
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Peserta Diterima</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-calculator fa-sm text-white-50"></i> Generate Nilai</a>
     </div>
@@ -39,7 +39,8 @@
                     <th>Nik Peserta</th>
                     <th>Nama Peserta</th>
                     <th>Jenis Kelamin</th>
-                    <th>Nilai</th>
+                    <th>Nilai Akhir</th>
+                    <th>Status Peserta</th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>
@@ -56,19 +57,12 @@
                     {{ $siswa->nilai }}
                     <i class="fe fe-info"></i>
                 </td>
+                <td>{{ $siswa->jenis_kelamin}}</td>
 
                 {{-- Action --}}
                 <td class="text-center">
-                    {{-- <a class="btn btn-success link" href="/datapendaftar/show/{{ $siswa->nisn}}" class="btn btn-sm btn-success">Nilai</a> --}}
-
-                    @if (empty($siswa->nilai))
-                        <a class="btn btn-warning" href="/penilaian/inputnilai/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Input Nilai</a>
-                    @else
-                        {{-- <a class="btn btn-success link" href="/penilaian/editnilai/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Edit Nilai</a> --}}
-                        {{-- <a class="btn btn-primary" href="" class="btn btn-sm btn-warning">Nilai Sudah Tersedia</a> --}}
-                        <i class="fa fa-check-square wd-90" aria-hidden="true"></i>
-                        <span class="mr-2 d-none d-lg-inline text-black text-bold ">Selesai</span>
-                    @endif
+                    <a class="btn btn-success" href="{{ route('pesertaditerima.edit',$siswa->id) }}" class="btn btn-sm btn-warning">Diterima</a>
+                    <a class="btn btn-warning" href="/peserta/ditolak/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Ditolak</a>
                 </td>
 
 
@@ -103,5 +97,3 @@
 
 {{-- END of CONTENT --}}
 @endsection
-
-

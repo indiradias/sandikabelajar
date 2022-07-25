@@ -35,7 +35,12 @@ class RegisterController extends Controller
         User::create($validatedData);
 
         // return redirect()->intended('/redirect'); //untuk menampilkan halaman dashboard user
-        return view('dashboard.dashboard-user');
+        // return view('dashboard.dashboard-user');
+        // return view('login.index');
+        return redirect('login');
+
+
+
 
     }
 }

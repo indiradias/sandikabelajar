@@ -1,5 +1,5 @@
-@extends('template')
-@section('header')
+@extends('layouts.Sidebar')
+@section ('header')
 <span class="app-brand-text demo menu-text fw-bolder ms-2">Informasi Peserta</span>
 
 @section('informasi')
@@ -14,7 +14,7 @@
       <table class="table">
         <thead>
         </thead>
-        {{-- @foreach ($admin as $siswa) --}}
+        @foreach ($siswa as $index => $siswa)
         <tbody class="table-border-bottom-0">
           <tr>
             <td>
@@ -30,7 +30,7 @@
                     {{-- Menu Cetak Formulir --}}
                         <li class="nav-item">
                             {{-- <a class="nav-link" data-bs-toggle="tab" href="/cetakformulir" class="btn btn-sm btn-success">Cetak Formulir</a> --}}
-                            <a class="btn btn-primary" href="/cetakformulir" class="btn btn-sm btn-success">Cetak Formulir</a>
+                            <a class="btn btn-primary" href="{{ route('siswa.edit',$siswa->id) }}" class="btn btn-sm btn-success">Cetak Formulir</a>
                         </li>
                         {{-- End Of Menu Cetak Formulir --}}
 
@@ -39,22 +39,27 @@
                                 Pengumuman</a>
                         </li>
                     </ul>
-                    {{-- <div id="sedangberjalan" class="tab-pane fade">
-                        <div class="profile-personal-info">
-                            {{ $siswa->status_pendaftaran}}
-                        </div>
-                    </div> --}}
+                    <div class="profile-tab">
+                        <div class="tab-content">
+                            <div id="sedangberjalan" class="tab-pane fade active show">
+                                <div class="profile-personal-info">
+                                    Status berkas Pendaftaran yang Anda kirimkan :
+                                    {{ $siswa->status_pendaftaran}}
+                                </div>
+                            </div>
 
-                    {{-- <div id="cetakformulir" class="tab-pane fade">
-                        <div class="profile-personal-info">
-                            <h6><br>waexfcgvhja </h6>
-                            <h6>Pelaksanaan : 01 November 2022 - 31 Maret 2023</h6>
-                            <li>Tes Masuk (03 April 2023)</li>
-                            <li>Wawancara (04 - 05 April 2023)</li>
-                            <li>Pengumuman (10 April 2023)</li>
-                            <li>MOS (Jadwal Menyusul)</li>
+                            <div id="lihatpengumuman" class="tab-pane fade show">
+                                <div class="profile-personal-info">
+                                    <h6><br>Gelombang II Jalur Prestasi</h6>
+                                    <h6>Pelaksanaan : 01 April 2023 - 30 Juni 2023</h6>
+                                    <h6>Kriteria Seleksi </h6>
+                                    <li>Juara I, II, III Minimal Tingkat Kabupaten</li>
+                                    <li>Lomba Akademik (OLIMPIADE MIPA) Minimal Tingkat Kabupaten</li>
+                                    <li>Lomba Non Akademik (MTQ, Tahfidz Minimal 2 Juz, Atletik)</li>
+                                </div>
+                            </div>
                         </div>
-                    </div> --}}
+                        </div>
                     </tr>
                     </thead>
                 </li>
@@ -62,7 +67,7 @@
             </td>
           </tr>
         </tbody>
-{{-- @endforeach --}}
+@endforeach
       </table>
     </div>
   </div>

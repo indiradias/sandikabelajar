@@ -12,11 +12,6 @@ class Siswa extends Model
     use HasFactory, Notifiable;
 
     protected $table = 'siswas';
-    protected $primaryKey = 'nisn';
-    protected $cast = ['nisn' => 'char'];
-
-
-
     protected $fillable = [
             // 'user_id',
             'pembayaran',
@@ -24,6 +19,7 @@ class Siswa extends Model
             'order_id',
 
             'nisn',
+            'user_id',
             'nik_peserta',
             'nama_peserta',
             'jenis_kelamin',
@@ -55,9 +51,9 @@ class Siswa extends Model
     }
 
     //relasi untuk user id tampil stts verifikasi siswa
-    // public function user(){
-	// 	return $this->belongsTo(User::class);
-	// }
+    public function user(){
+		return $this->belongsTo(User::class);
+	}
 
     //query jumlah asal sekolah
     public function jumlah($jumlah){
@@ -66,7 +62,7 @@ class Siswa extends Model
 
     //relasi tabel penilaian
     public function getPenilaian() {
-        return $this->hasMany('App\Models\penilaian', 'nisn', 'nisn');
+        return $this->hasMany(penilaian::class);
     }
 
 }
