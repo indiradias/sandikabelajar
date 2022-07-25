@@ -1,4 +1,7 @@
 @extends('layouts.Admin')
+@section('title-admin')
+    <title>Sistem PPDB | Penilaian Peserta</title>
+@endsection
 @section('penilaian-admin')
 {{-- CONTENT --}}
 

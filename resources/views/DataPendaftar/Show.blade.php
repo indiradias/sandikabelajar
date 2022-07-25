@@ -1,4 +1,7 @@
 @extends('layouts.Admin')
+@section('title-admin')
+    <title>Sistem PPDB | Lihat Data Peserta</title>
+@endsection
 @section('datapendaftar-show')
 
 {{-- CONTENT --}}

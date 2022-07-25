@@ -1,4 +1,7 @@
-@extends('layouts.Sidebar')
+@extends('layouts.Peserta')
+@section('title-peserta')
+    <title>Sistem PPDB | Berhasil Mendaftar</title>
+@endsection
 @section ('header')
 <span class="app-brand-text demo menu-text fw-bolder ms-2">Form Pendaftaran</span>
 

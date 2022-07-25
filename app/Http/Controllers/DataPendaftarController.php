@@ -26,7 +26,7 @@ class DataPendaftarController extends Controller
                 ->orWhere('nik_peserta', 'like', "%" . $keyword . "%");
         })->orderBy('created_at', 'desc')->paginate(5);
 
-        return view('Admin/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('DataPendaftar/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 5);
         //return view ('datapendaftar-admin',compact('sisw'));
 
         // if($request->has('search')){
@@ -90,7 +90,7 @@ class DataPendaftarController extends Controller
     public function show($id)
     {
         $siswa = Siswa::find($id);
-        return view('Admin/Show', compact('siswa'));
+        return view('DataPendaftar/Show', compact('siswa'));
     }
 
     /**

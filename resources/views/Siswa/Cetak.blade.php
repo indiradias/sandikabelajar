@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <title>Surat Permohonan Perorangan</title> -->
-  <title>  </title>
+  <title> Sistem PPDB | Cetak Formulir </title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <style>
     table tr .text2{
@@ -33,7 +33,7 @@
   <center>
 
     <tr>
-      <table width="625" class="border-bottom border-dark solid"><br><br>
+      <table width="625" class="border-bottom border-dark solid"><br>
         <td><img src="{{ asset('PPDB/images/logo ppm.png')}}" width="105" height="105"></td>
         <td>
           <center class="">
@@ -51,7 +51,7 @@
 
     <font size="4"><b>BUKTI PENDAFTARAN PPDB</b></font><br>
 
-    <td class="text"><br><br>
+    <td class="text"><br>
         <img src="{{ asset('storage/' . $siswa->pasphoto) }}" width="80" height="120">
     </td>
 
@@ -220,7 +220,7 @@
         </tr>
 
     </table>
-    <br><br>
+    {{-- <br><br> --}}
     <td><i>*Silahkan dicetak rangkap 2</i></td>
   </center>
   <div class="container-lg text-center mt-4 mb-4 pt-4">

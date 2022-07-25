@@ -13,14 +13,18 @@ class RedirectsController extends Controller
     {
         $role=Auth::user()->role;
         $pagination  = 5;
+
+        //Buat liat statistik nilai (persentase) di menu dashboard admin
         $jumlah = Siswa::count();
-        $berkas = Siswa::where('status_pendaftaran', 'Terverifikasi')->count();
-        $nilai = penilaian::with('siswa')->where('siswa_id', Auth::user()->id)->count(); //belum
+        $terverifikasi = Siswa::where('status_pendaftaran', 'Terverifikasi')->count();
+        $blm_terverifikasi = Siswa::where('status_pendaftaran', 'Belum Terverifikasi')->count();
+        $nilai =penilaian::where('nilai')->count();
+        // $nilai = penilaian::with('siswa')->where('siswa_id', Auth::user()->id)->count(); //belum
         $keyword = $request->keywoard;
 
         if($role=='admin')
         {
-            return view('dashboard.dashboard-admin', compact('jumlah', 'berkas','nilai'));
+            return view('dashboard.dashboard-admin', compact('jumlah', 'terverifikasi', 'blm_terverifikasi','nilai'));
         }
         else{
             $siswa   = Siswa::where(function ($query) use ($keyword) {

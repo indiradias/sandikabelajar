@@ -31,6 +31,8 @@
 
     <meta name="description" content="" />
 
+    @yield('title-peserta')
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
