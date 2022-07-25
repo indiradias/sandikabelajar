@@ -26,13 +26,19 @@ class PesertaDiterimaController extends Controller
                 ->orWhere('nik_peserta', 'like', "%" . $keyword . "%");
         })->paginate($pagination);
 
+        // $slotArray = [];
         foreach ($sisw as $key => $siswa) {
             $nilai = $siswa->getPenilaian()->get();
-            $siswa->nilai = ($nilai[0]->nilai + $nilai[1]->nilai + $nilai[2]->nilai) / 3;
+            return collect([
+            $siswa->nilai = ($nilai[0]->nilai + $nilai[1]->nilai + $nilai[2]->nilai) / 3,
+            ]);
         }
 
+        // penilaian::all()->sortBy('nilai');
         $sisw = $sisw->sortBy("nilai");
+        // $sisw = $sisw->sortBy("nilai");
         dd($sisw);
+
         return view('PesertaDiterima/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

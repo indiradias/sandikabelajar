@@ -43,6 +43,7 @@
                         <div class="tab-content">
                             <div id="sedangberjalan" class="tab-pane fade active show">
                                 <div class="profile-personal-info">
+                                    Status berkas Pendaftaran yang Anda kirimkan :
                                     {{ $siswa->status_pendaftaran}}
                                 </div>
                             </div>

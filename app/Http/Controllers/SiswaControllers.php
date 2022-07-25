@@ -132,20 +132,6 @@ class SiswaControllers extends Controller
     }
 
 
-    // public function cekout(Siswa $request){
-    //     $params = $request->except('_token');
-
-    //     $pembayaran = Siswa::transaction([
-    //         $pembayaran = $this->_savePembayaran($params),
-    //         $this->_generatePaymentToken($pembayaran),
-    //         $this->_savePembayaran($pembayaran, $params),
-    //     ]);
-    //     return $pembayaran;
-
-    //     // if ($pembayaran){
-
-    //     }
-
     }
 
 

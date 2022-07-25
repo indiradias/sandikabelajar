@@ -75,7 +75,7 @@
             </tr>
             @endforeach
           </table>
-          {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             {!! $sisw->links() !!}
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start text-gray-600 fs-6">
@@ -86,7 +86,7 @@
                <p>dari</p>
                {{ $sisw->total() }}
                <p>data</p>
-             </div> --}}
+             </div>
 
             </div>
         </div>

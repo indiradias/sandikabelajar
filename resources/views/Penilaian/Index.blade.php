@@ -47,7 +47,7 @@
             @foreach ($sisw as $index => $siswa)
 
             <tr>
-                {{-- <td>{{ $index + $sisw->firstItem() }}</td> --}}
+                <td>{{ $index + $sisw->firstItem() }}</td>
                 <td>{{ $siswa->nisn}}</td>
                 <td>{{ $siswa->nik_peserta}}</td>
                 <td>{{ $siswa->nama_peserta}}</td>

@@ -12,6 +12,7 @@ use App\Http\Controllers\PesertaDiterimaController;
 use App\Http\Controllers\SiswaControllers;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\InformasiPesertaController;
+use App\Http\Controllers\PaymentGatewayController;
 use App\Http\Controllers\PembayaranPesertaController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -77,8 +78,9 @@ Route::resource('/siswa', SiswaControllers::class); //Route untuk menu pendaftar
 Route::get('/data-status', [DataPendaftarController::class, 'index']);
 // Route::post('/data-status{nisn}', [DataPendaftarController::class, 'verifikasistatuspendaftaran']);
 
-Route::resource('/pembayaran', PembayaranPesertaController::class); //Route untuk menu Pembayaran
-Route::post('/pembayaran', [PembayaranPesertaController::class, 'payment_post']); //Route untuk menu Pembayaran
+// Route::resource('/pembayaran', PembayaranPesertaController::class); //Route untuk menu Pembayaran
+Route::resource('/pembayaran', PaymentGatewayController::class);
+// Route::post('/pembayaran', [PembayaranPesertaController::class, 'payment_post']); //Route untuk menu Pembayaran
 
 Route::resource('/informasi', InformasiPesertaController::class); //Route untuk menu informasi
 Route::get('/cetak', [SiswaControllers::class, 'cetak'])->name('cetak');

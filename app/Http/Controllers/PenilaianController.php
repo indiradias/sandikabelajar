@@ -28,6 +28,7 @@ class PenilaianController extends Controller
         // $sisw->appends($request->only('keyword'));
 
         // set perhitungan nilai rata-rata dari 3 jenis test
+
         foreach ($sisw as $key => $siswa) {
             $nilai = $siswa->getPenilaian()->get();
             if (!empty($nilai[0]))
@@ -35,7 +36,10 @@ class PenilaianController extends Controller
             else
                 $siswa->nilai = 0;
         }
+
+
         // $sisw = $sisw->sortBy("nilai");
+        // dd($nilai);
 
         return view ('Penilaian/Index',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 5);
     }

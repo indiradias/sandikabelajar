@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layouts.Sidebar')
 @section('header')
 <span class="app-brand-text demo menu-text fw-bolder ms-2">Pembayaran Pendaftaran</span>
 @section('pembayaran')

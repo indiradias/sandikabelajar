@@ -50,8 +50,15 @@
     </tr>
 
     <font size="4"><b>BUKTI PENDAFTARAN PPDB</b></font><br>
+
+    <td class="text"><br><br>
+        <img src="{{ asset('storage/' . $siswa->pasphoto) }}" width="80" height="120">
+    </td>
+
     <font size="3" style="text-align: left"><b>Biodata Santri</b></font>
+
     <table width="750">
+
         <tr>
             <td>Nama Lengkap &emsp; &ensp; </td>
             <td width="549">

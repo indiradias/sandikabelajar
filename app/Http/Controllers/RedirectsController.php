@@ -14,12 +14,13 @@ class RedirectsController extends Controller
         $role=Auth::user()->role;
         $pagination  = 5;
         $jumlah = Siswa::count();
-        $nilai = penilaian::with('siswa')->where('siswa_id', Auth::user()->id)->count();
+        $berkas = Siswa::where('status_pendaftaran', 'Terverifikasi')->count();
+        $nilai = penilaian::with('siswa')->where('siswa_id', Auth::user()->id)->count(); //belum
         $keyword = $request->keywoard;
 
         if($role=='admin')
         {
-            return view('dashboard.dashboard-admin', compact('jumlah', 'nilai'));
+            return view('dashboard.dashboard-admin', compact('jumlah', 'berkas','nilai'));
         }
         else{
             $siswa   = Siswa::where(function ($query) use ($keyword) {
