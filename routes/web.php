@@ -85,6 +85,10 @@ Route::resource('/pembayaran', PaymentGatewayController::class);
 Route::resource('/informasi', InformasiPesertaController::class); //Route untuk menu informasi
 Route::get('/cetak', [SiswaControllers::class, 'cetak'])->name('cetak');
 
+Route::post('update_status', [PesertaDiterimaController::class, 'update_status']);
+Route::get('pesertaditerimas/{id}', [PesertaDiterimaController::class, 'updates']);
+Route::get('pesertaditerimas-ditolak/{id}', [PesertaDiterimaController::class, 'updates_ditolak']);
+
 
 
 

@@ -45,6 +45,7 @@ return new class extends Migration
             $table->string('kartu_keluarga');
             $table->string('raport');
             $table->string('sertifikat_prestasi')->nullable();
+            $table->string('nilai_rata')->nullable();
             $table->timestamps();
         });
     }

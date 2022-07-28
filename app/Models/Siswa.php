@@ -41,6 +41,7 @@ class Siswa extends Model
             'ktp_orangtua',
             'kartu_keluarga',
             'raport',
+            'nilai_rata',
     ];
 
     public $guarded = 'sertifikat_prestasi';

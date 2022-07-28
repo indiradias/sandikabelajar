@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentGatewayController;
 use App\Http\Controllers\PembayaranPesertaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('xendit/va/list', 'PembayaranPesertaController@index'); //untuk testing list VA gateway
+// Route::get('xendit/va/list', 'PembayaranPesertaController@index'); //untuk testing list VA gateway
+Route::post('/pembayaran/notif', [PaymentGatewayController::class, 'payment_post']); //Route untuk mnotif jika berhasil bayar dll

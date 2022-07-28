@@ -16,7 +16,7 @@ class penilaian extends Model
         'nilai'
     ];
     public function getSiswa() {
-        return $this->belongsTo(Siswa::class);
+        return $this->belongsTo(Siswa::class,'siswa_id');
     }
 }
 

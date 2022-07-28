@@ -6,6 +6,7 @@ use App\Models\penilaian;
 use App\Models\Siswa;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PesertaDiterimaController extends Controller
 {
@@ -19,25 +20,35 @@ class PesertaDiterimaController extends Controller
         //menu search
         $pagination  = 5;
         $keyword = $request->keywoard;
-        $sisw   = Siswa::where(function ($query) use ($keyword) {
+        //menambah descending pada sirtir nilai tertinggi ke terendah
+        $sisw   = Siswa::orderBy('nilai_rata','DESC')->where(function ($query) use ($keyword) {
             return $query
                 ->where('nama_peserta', 'like', "%" . $keyword . "%")
                 ->orWhere('nisn', 'like', "%" . $keyword . "%")
-                ->orWhere('nik_peserta', 'like', "%" . $keyword . "%");
+                ->orWhere('nik_peserta', 'like', "%" . $keyword . "%")
+               
+                ;
         })->paginate($pagination);
+        
 
         // $slotArray = [];
-        foreach ($sisw as $key => $siswa) {
-            $nilai = $siswa->getPenilaian()->get();
-            return collect([
-            $siswa->nilai = ($nilai[0]->nilai + $nilai[1]->nilai + $nilai[2]->nilai) / 3,
-            ]);
-        }
+        // foreach ($sisw as $key => $siswa) {
+        //     $nilai =DB::table('penilaians')
+        //     ->join('siswas', 'penilaians.siswa_id', '=', 'siswas.id')
+        //     ->select('siswas.nama_peserta','penilaians.*')
+        //     ->orderBy('nilai_rata','desc')->get();
 
+
+           
+        //     // return collect([
+        //     // $siswa->nilai = ($nilai[0]->nilai + $nilai[1]->nilai + $nilai[2]->nilai) / 3;
+        //     // ]);
+        // }
+        // return $sisw;
         // penilaian::all()->sortBy('nilai');
-        $sisw = $sisw->sortBy("nilai");
         // $sisw = $sisw->sortBy("nilai");
-        dd($sisw);
+        // $sisw = $sisw->sortBy("nilai");
+        // dd($sisw);
 
         return view('PesertaDiterima/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -99,15 +110,34 @@ class PesertaDiterimaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updates(Request $request, $id)
     {
-        $request->validate([
-            'status_pendaftaran' => 'required',
-        ]);
+      
 
-        Siswa::where('id', $id)->update(['status_pendaftaran' => $request->status_pendaftaran]);
+        //update_status diterima
 
-        return redirect()->route('PesertaDiterima/Index')
+       $s= Siswa::where('id', $id)->first();
+
+       $s->update(['status_pendaftaran' => 'Diterima']);
+
+        // return $s;
+
+        return redirect('pesertaditerima')
+            ->with('success', 'Product updated successfully');
+    }
+
+    public function updates_ditolak(Request $request, $id)
+    {
+       
+        //update ditolak
+
+       $s= Siswa::where('id', $id)->first();
+
+       $s->update(['status_pendaftaran' => 'Ditolak']);
+
+        // return $s;
+
+        return redirect('pesertaditerima')
             ->with('success', 'Product updated successfully');
     }
 
@@ -120,5 +150,15 @@ class PesertaDiterimaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function update_status(Request $request){
+        if($request->ceklist){
+            //melakukan update ceklist yg dipilih/all
+            Siswa::whereIn('id', $request->ceklist)->update(['status_pendaftaran' => 'Diterima']);	
+            return redirect()->back()->with('success','Data Berhasil di Update');
+        }else{
+            //jika tidak ada hanya redirect kosongan
+            return redirect()->back();
+        }
     }
 }

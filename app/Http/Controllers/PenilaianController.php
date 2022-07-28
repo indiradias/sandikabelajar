@@ -85,6 +85,15 @@ class PenilaianController extends Controller
                 'jenis_tes_id' => 3, // mengaji
             ]
         ];
+            //membuat sum nilai akhir dari 3 jenis test
+        $nilai_akhir = ($request->get('tes_wawancara') + $request->get('tes_tulis') + $request->get('tes_mengaji')) / 3;
+
+        //kemudian dimaskukkan ke siswa yg sesuai dan di update nilai rata
+        Siswa::where('id',$request->get('siswa_id'))->update([
+            'nilai_rata' => $nilai_akhir, // status diterima
+        ]);
+
+        
 
 
         penilaian::insert($penilaian);
