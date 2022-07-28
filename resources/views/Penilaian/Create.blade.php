@@ -1,4 +1,7 @@
 @extends('layouts.Admin')
+@section('title-admin')
+    <title>Sistem PPDB | Input Nilai Peserta</title>
+@endsection
 @section('inputnilai-admin')
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">

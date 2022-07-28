@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem PPDB | Dashboard Admin</title>
+    @yield('title-admin')
+    {{-- <title>Sistem PPDB | Dashboard Admin</title> --}}
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

@@ -20,7 +20,7 @@ class SiswaControllers extends Controller
     {
         //buat di  menu informasi bagian (sedang berjalan)
         $siswa = Siswa::with('user')->where('user_id', Auth::user()->id)->get();
-        return view('Siswa/Index', compact('siswa'));
+        return view('Siswa/Informasi', compact('siswa'));
     }
 
     /**
@@ -75,7 +75,7 @@ class SiswaControllers extends Controller
             'sertifikat_prestasi' => $request -> file('sertifikat_prestasi') ? $request -> file('sertifikat_prestasi') -> store('sertifikat_prestasi', 'public') : null,
         ]);
 
-        return view('dashboard/dashboard-user')->with('succes','Data Berhasil di Input');
+        return view('Siswa/Index2')->with('succes','Data Berhasil di Input');
         //return redirect()->route('informasi-peserta')->with('succes','Data Berhasil di Input');
 
     }
