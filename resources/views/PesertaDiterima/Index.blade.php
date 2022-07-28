@@ -35,7 +35,7 @@
       </div>
       @endif
    
-      {{-- form kirim status ceklist--}}
+      <!-- {{-- form kirim status ceklist--}} -->
       <div class="row form-group gap-1 d-md-flex justify-content-end card-header ">
         <form class="form" id="formkirim" method="POST" action="{{url('update_status')}}">
           @csrf
@@ -110,7 +110,7 @@
           </td>
 
           <td>
-          {{-- ceklist array supaya ikut kelooping-}}
+          <!-- ceklist array supaya ikut kelooping -->
             <div class="check">
               <label for="">
                 <input type="checkbox" name="cek[]" value="{{$siswa->id}}" class="checkitem">
