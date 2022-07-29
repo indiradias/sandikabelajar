@@ -16,6 +16,8 @@ class PenilaianController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('admin'); //untuk authorization (level akses)
+
         $pagination  = 5;
         $keyword = $request->keywoard;
         $sisw   = Siswa::where(function ($query) use ($keyword) {

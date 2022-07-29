@@ -16,6 +16,8 @@ class PesertaDiterimaController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('admin'); //untuk authorization (level akses)
+
         //menu search
         $pagination  = 5;
         $keyword = $request->keywoard;

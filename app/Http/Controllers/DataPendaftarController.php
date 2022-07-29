@@ -17,6 +17,8 @@ class DataPendaftarController extends Controller
     public function index(Request $request)
     {
         // dd(request('keywoard'));
+        $this->authorize('admin'); //untuk authorization (level akses)
+
         $pagination  = 5;
         $keyword = $request->keywoard;
         $sisw   = Siswa::where(function ($query) use ($keyword) {
@@ -25,6 +27,7 @@ class DataPendaftarController extends Controller
                 ->orWhere('nisn', 'like', "%" . $keyword . "%")
                 ->orWhere('nik_peserta', 'like', "%" . $keyword . "%");
         })->orderBy('created_at', 'desc')->paginate(5);
+
 
         return view('DataPendaftar/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 5);
         //return view ('datapendaftar-admin',compact('sisw'));

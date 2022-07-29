@@ -11,6 +11,7 @@ class RedirectsController extends Controller
 {
     public function index(Request $request)
     {
+
         $role=Auth::user()->role;
         $pagination  = 5;
 

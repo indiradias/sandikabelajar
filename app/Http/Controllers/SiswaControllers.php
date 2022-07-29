@@ -48,7 +48,7 @@ class SiswaControllers extends Controller
      */
     public function store(Request $request)
     {
-        Siswa::insert([
+        $validatedData=([
             'user_id' => auth()->id(), //untuk ngambil id yg login
             'nisn' => $request -> input('nisn'),
             'nik_peserta' => $request -> input('nik_peserta'),
@@ -74,6 +74,8 @@ class SiswaControllers extends Controller
             'raport' => $request -> file('raport') ? $request -> file('raport') -> store('raport', 'public') : null,
             'sertifikat_prestasi' => $request -> file('sertifikat_prestasi') ? $request -> file('sertifikat_prestasi') -> store('sertifikat_prestasi', 'public') : null,
         ]);
+
+        Siswa::insert($validatedData);
 
         return view('Siswa/Index2')->with('succes','Data Berhasil di Input');
         //return redirect()->route('informasi-peserta')->with('succes','Data Berhasil di Input');

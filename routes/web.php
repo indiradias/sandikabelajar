@@ -14,6 +14,8 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\InformasiPesertaController;
 use App\Http\Controllers\PaymentGatewayController;
 use App\Http\Controllers\PembayaranPesertaController;
+use Illuminate\Routing\RedirectController;
+use Illuminate\Support\Facades\Redirect;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -64,6 +66,7 @@ Route::post('/register', [RegisterController::class, 'store']); //Route untuk me
 Route::get('/dashboard-admin', function(){
     return view('dashboard.dashboard-admin');
 });
+
 
 //untuk route dashboard user
 Route::get('/dashboard-user', function(){
