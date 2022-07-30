@@ -59,7 +59,7 @@
                 <ul class="nav flex-column">
 
                     <li class="nav-item active">
-                        <a class="nav-link {{ Request::is('/dashboard-admin') ? 'active' : ''}}" href="/dashboard-admin">
+                        <a class="nav-link {{ Request::is('/redirects') ? 'active' : ''}}" href="/redirects">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
@@ -219,6 +219,7 @@
 
     <script src="https://kit.fontawesome.com/f18d3773ef.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+@yield('js')
 
 </body>
 

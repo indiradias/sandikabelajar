@@ -42,6 +42,7 @@
                     <th>Nik Peserta</th>
                     <th>Nama Peserta</th>
                     <th>Jenis Kelamin</th>
+                    <th>Pembayaran</th>
                     <th>Status</th>
                     <th class="text-center">Aksi</th>
                 </tr>
@@ -57,6 +58,7 @@
                 <td>{{ $siswa->nik_peserta}}</td>
                 <td>{{ $siswa->nama_peserta}}</td>
                 <td>{{ $siswa->jenis_kelamin}}</td>
+                <td>{{ $siswa->pembayaran}}</td>
                 <td>{{ $siswa->status_pendaftaran}}</td>
 
                 {{-- Action --}}

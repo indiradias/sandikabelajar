@@ -27,7 +27,7 @@
                     <tr>
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#sedangberjalan" role="tab">Sedang Berjalan</a>
+                            <a class="nav-link" data-bs-toggle="tab" href="#sedangberjalan" role="tab">Cek Status Pendaftaran</a>
                         </li>
 
                     {{-- Menu Cetak Formulir --}}
@@ -37,16 +37,16 @@
                         </li>
                         {{-- End Of Menu Cetak Formulir --}}
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" href="#lihatpengumuman" role="tab">Lihat
                                 Pengumuman</a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="profile-tab">
                         <div class="tab-content">
                             <div id="sedangberjalan" class="tab-pane fade active show">
                                 <div class="profile-personal-info">
-                                    Status berkas Pendaftaran yang Anda kirimkan :
+                                    Status Pendaftaran :
                                     {{ $siswa->status_pendaftaran}}
                                 </div>
                             </div>

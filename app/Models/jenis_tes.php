@@ -10,7 +10,6 @@ class jenis_tes extends Model
     use HasFactory;
 
     protected $table = 'jenis_tes';
-    protected $primaryKey = 'nisn';
 
     protected $fillable = [
             'tes_wawancara',

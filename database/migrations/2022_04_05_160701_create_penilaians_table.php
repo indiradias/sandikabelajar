@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('siswa_id')->constrained(); //table foreign key
             $table->unsignedInteger('jenis_tes_id'); //table foreign key
             $table->foreign('jenis_tes_id')->references('id')->on('jenis_tes'); //table foreign key
-            $table->integer('nilai'); //table nilai
+            $table->double('nilai'); //table nilai
             $table->timestamps();
         });
     }

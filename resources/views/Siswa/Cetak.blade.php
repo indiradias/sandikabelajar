@@ -39,7 +39,7 @@
           <center class="">
               <font size="4"><b>PONDOK PESANTREN MODERN AL AZHAR MUNCAR</b></font><br>
               <font size="4"><b>PANITIA PENERIMAAN PESERTA DIDIK BARU</b></font><br>
-              <font size="4"><b>TAHUN AJARAN 2022/2023</b></font><br>
+              <font size="4"><b>TAHUN AJARAN {{ $siswa->tahun_ajaran }}</b></font><br>
               <font size="3">Jl. Ompaksongo Tembokrejo, Muncar, Banyuwangi, 68472</font><br>
               <font size="3">Website : alazharmuncar.org; Email : ypisalazharmuncar@gmail.com</font><br>
           <center>

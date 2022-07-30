@@ -48,8 +48,9 @@ class SiswaControllers extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData=([
+        Siswa::insert([
             'user_id' => auth()->id(), //untuk ngambil id yg login
+            'tahun_ajaran' => $request -> input('tahun_ajaran'),
             'nisn' => $request -> input('nisn'),
             'nik_peserta' => $request -> input('nik_peserta'),
             'nama_peserta' => $request -> input('nama_peserta'),
@@ -66,7 +67,7 @@ class SiswaControllers extends Controller
             'pekerjaan_ibu' => $request -> input('pekerjaan_ibu'),
             'alamat_orangtua' => $request -> input('alamat_orangtua'),
             'noHp_orangtua' => $request -> input('noHp_orangtua'),
-            'status_pendaftaran' => 'Belum Terverifikasi',
+            'status_pendaftaran' => 'Berkas Belum Terverifikasi',
             'pasphoto' => $request -> file('pasphoto') ? $request -> file('pasphoto') -> store('pasphoto', 'public') : null,
             'akta_peserta' => $request -> file('akta_peserta') ? $request -> file('akta_peserta') -> store('akta_peserta', 'public') : null,
             'ktp_orangtua' => $request -> file('ktp_orangtua') ? $request -> file('ktp_orangtua') -> store('ktp_orangtua', 'public') : null,
@@ -74,8 +75,6 @@ class SiswaControllers extends Controller
             'raport' => $request -> file('raport') ? $request -> file('raport') -> store('raport', 'public') : null,
             'sertifikat_prestasi' => $request -> file('sertifikat_prestasi') ? $request -> file('sertifikat_prestasi') -> store('sertifikat_prestasi', 'public') : null,
         ]);
-
-        Siswa::insert($validatedData);
 
         return view('Siswa/Index2')->with('succes','Data Berhasil di Input');
         //return redirect()->route('informasi-peserta')->with('succes','Data Berhasil di Input');

@@ -33,6 +33,11 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
+                                <strong>Tahun Ajaran</strong>
+                                {{ $siswa->tahun_ajaran }}
+                            </div>
+
+                            <div class="form-group">
                                 <strong>NISN</strong>
                                 {{ $siswa->nisn }}
                             </div>
@@ -176,7 +181,7 @@
                 @csrf
                 @method('PUT')
                     <div class="form-group" hidden>
-                        <input type="text" name="status_pendaftaran" class="form-control" placeholder="NISN Peserta" value="Terverifikasi">
+                        <input type="text" name="status_pendaftaran" class="form-control" placeholder="NISN Peserta" value="Berkas Terverifikasi">
                     </div>
                 <br>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">

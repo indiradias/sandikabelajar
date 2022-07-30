@@ -22,6 +22,7 @@ return new class extends Migration
 
             $table->id();
             $table->foreignId('user_id')->constrained(); //foreign key user id. User-Siswa
+            $table->text('tahun_ajaran');
             $table->char('nisn');
             $table->text('nik_peserta');
             $table->text('nama_peserta');
@@ -38,13 +39,14 @@ return new class extends Migration
             $table->text('pekerjaan_ibu');
             $table->text('alamat_orangtua');
             $table->text('noHp_orangtua');
-            $table->string('status_pendaftaran')->default('Belum Terverifikasi');
+            $table->string('status_pendaftaran')->default('Berkas Belum Terverifikasi');
             $table->string('pasphoto');
             $table->string('akta_peserta');
             $table->string('ktp_orangtua');
             $table->string('kartu_keluarga');
             $table->string('raport');
             $table->string('sertifikat_prestasi')->nullable();
+            $table->double('nilai_rata')->nullable();
             $table->timestamps();
         });
     }

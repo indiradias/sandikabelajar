@@ -31,6 +31,7 @@
     {{-- <form action="{{ route('sisw.update',$nisn) }}" method="POST">
         @csrf
         @method('PUT') --}}
+        <h4 class="fw-semibold d-block">{{$siswa->nama_peserta}}</h4><br>
 
         <form
             action="{{ route('penilaian.store') }}" method="post"

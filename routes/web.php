@@ -10,7 +10,7 @@ use App\Http\Controllers\DataPendaftarController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PesertaDiterimaController;
 use App\Http\Controllers\SiswaControllers;
-use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\TahunControllers ;
 use App\Http\Controllers\InformasiPesertaController;
 use App\Http\Controllers\PaymentGatewayController;
 use App\Http\Controllers\PembayaranPesertaController;
@@ -77,7 +77,6 @@ Route::resource('/datapendaftar', DataPendaftarController::class); //Route untuk
 Route::resource('/penilaian', PenilaianController::class);
 Route::resource('/pesertaditerima', PesertaDiterimaController::class); //Route resource untuk penilaian
 Route::resource('/siswa', SiswaControllers::class); //Route untuk menu pendaftaran(isi form peserta)
-
 Route::get('/data-status', [DataPendaftarController::class, 'index']);
 // Route::post('/data-status{nisn}', [DataPendaftarController::class, 'verifikasistatuspendaftaran']);
 
@@ -86,7 +85,10 @@ Route::resource('/pembayaran', PaymentGatewayController::class);
 // Route::post('/pembayaran', [PembayaranPesertaController::class, 'payment_post']); //Route untuk menu Pembayaran
 
 Route::resource('/informasi', InformasiPesertaController::class); //Route untuk menu informasi
-Route::get('/cetak', [SiswaControllers::class, 'cetak'])->name('cetak');
+
+Route::post('update_status', [PesertaDiterimaController::class, 'update_status']);
+Route::get('pesertaditerimas/{id}', [PesertaDiterimaController::class, 'updates']);
+Route::get('pesertaditerimas-ditolak/{id}', [PesertaDiterimaController::class, 'updates_ditolak']);
 
 
 

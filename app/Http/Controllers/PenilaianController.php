@@ -29,8 +29,7 @@ class PenilaianController extends Controller
 
         // $sisw->appends($request->only('keyword'));
 
-        // set perhitungan nilai rata-rata dari 3 jenis test
-
+        // set perhitungan nilai rata-rata dari 3 jenis test (untuk nampilin di view)
         foreach ($sisw as $key => $siswa) {
             $nilai = $siswa->getPenilaian()->get();
             if (!empty($nilai[0]))
@@ -88,9 +87,16 @@ class PenilaianController extends Controller
             ]
         ];
 
+        //membuat sum nilai akhir dari 3 jenis test (masuk dtbase)->backend
+        $nilai_akhir = ($request->get('tes_wawancara') + $request->get('tes_tulis') + $request->get('tes_mengaji')) / 3;
 
+        //kemudian dimaskukkan ke siswa yg sesuai dan di update nilai rata
+        Siswa::where('id',$request->get('siswa_id'))->update([
+            'nilai_rata' => $nilai_akhir, // status diterima
+        ]);
+
+        //untuk insert nilai jenis tes
         penilaian::insert($penilaian);
-        // Siswa::all()->orderBy('nilai', 'desc');
 
 
         return redirect('penilaian')->with('succes','Berhasil Menambahkan Nilai');
@@ -118,7 +124,7 @@ class PenilaianController extends Controller
     {
 
         //return view('penilaian-inputnilai', ['nisn' => $nisn]);
-        return view('penilaian-editnilai', ['nisn' => $nisn]);
+        // return view('penilaian-editnilai', ['nisn' => $nisn]);
     }
 
     /**
