@@ -62,25 +62,15 @@
 
                 {{-- Action --}}
                 <td class="text-center">
-                    {{-- <a class="btn btn-success link" href="/datapendaftar/show/{{ $siswa->nisn}}" class="btn btn-sm btn-success">Nilai</a> --}}
 
                     @if (empty($siswa->nilai))
                         <a class="btn btn-warning" href="{{ route('penilaian.show',$siswa->id) }}" class="btn btn-sm btn-warning">Input Nilai</a>
                     @else
-                        {{-- <a class="btn btn-success link" href="/penilaian/editnilai/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Edit Nilai</a> --}}
-                        {{-- <a class="btn btn-primary" href="" class="btn btn-sm btn-warning">Nilai Sudah Tersedia</a> --}}
                         <i class="fa fa-check-square wd-90" aria-hidden="true"></i>
                         <span class="mr-2 d-none d-lg-inline text-black text-bold ">Selesai</span>
                     @endif
                 </td>
 
-
-                        {{-- @csrf
-                        @method('DELETE')
-
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button> --}}
-                    {{-- </form>
-                </td> --}}
             </tr>
             @endforeach
           </table>
@@ -100,9 +90,7 @@
             </div>
         </div>
 
-
-
-      {{-- End Of Tampilan Tabel Data Pendaftar --}}
+      {{-- End Of Tampilan Tabel Penilaian --}}
 
 {{-- END of CONTENT --}}
 @endsection

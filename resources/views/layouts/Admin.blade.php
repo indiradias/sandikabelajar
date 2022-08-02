@@ -77,7 +77,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link {{ Request::is('peserta-diterima') ? 'active' : ''}}" href="/peserta-diterima">
+                    <a class="nav-link {{ Request::is('peserta-diterima') ? 'active' : ''}}" href="/pesertaditerima">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Peserta Diterima</span></a>
                 </li>

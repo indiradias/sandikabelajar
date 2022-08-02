@@ -41,7 +41,7 @@
                     <th>NISN</th>
                     <th>Nik Peserta</th>
                     <th>Nama Peserta</th>
-                    <th>Jenis Kelamin</th>
+                    <th>JK</th>
                     <th>Pembayaran</th>
                     <th>Status</th>
                     <th class="text-center">Aksi</th>
@@ -63,7 +63,7 @@
 
                 {{-- Action --}}
                 <td class="text-center">
-                    <a class="btn btn-warning" href="{{ route('datapendaftar.show',$siswa->id) }}" class="btn btn-sm btn-success">Lihat Data Peserta</a>
+                    <a class="btn btn-warning" href="{{ route('datapendaftar.show',$siswa->id) }}" class="btn btn-sm btn-success">Lihat Data</a>
                     {{-- <a class="btn btn-warning" href="/datapendaftar/edit/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Edit</a> --}}
                 </td>
 

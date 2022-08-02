@@ -28,9 +28,6 @@
         </div>
     @endif
 
-    {{-- <form action="{{ route('sisw.update',$nisn) }}" method="POST">
-        @csrf
-        @method('PUT') --}}
         <h4 class="fw-semibold d-block">{{$siswa->nama_peserta}}</h4><br>
 
         <form
@@ -47,9 +44,6 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tes Wawancara</strong>
-                    {{-- <input
-                            type="text" name="tes_wawancara" class="form-control" placeholder="Tes Wawancara" value="{{ $tes_wawancara }}"
-                        > --}}
                     <input
                         type="text"
                         name="tes_wawancara"
@@ -62,9 +56,6 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tes Tulis</strong>
-                    {{-- <input
-                            type="text" name="tes_tulis" class="form-control" placeholder="Tes Tulis" value="{{ $tes_tulis}}"
-                        > --}}
                     <input
                         type="text"
                         name="tes_tulis"
@@ -77,9 +68,6 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tes Mengaji</strong>
-                    {{-- <input
-                            type="text" name="tes_mengaji" value="{{ $tes_mengaji }}" class="form-control" placeholder="Tes Mengaji"
-                        > --}}
                     <input
                         type="text"
                         name="tes_mengaji"

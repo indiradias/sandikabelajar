@@ -62,8 +62,12 @@ class Siswa extends Model
     }
 
     //relasi tabel penilaian
+    // public function getPenilaian() {
+    //     return $this->hasMany(penilaian::class);
+    // }
     public function getPenilaian() {
-        return $this->hasMany(penilaian::class);
+        return $this->hasOne(penilaian::class);
     }
+
 
 }
