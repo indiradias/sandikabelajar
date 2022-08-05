@@ -13,11 +13,11 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{ asset('PPDB/images/ppdb1.jpeg') }}"
+                            <img class="d-block w-100" src="{{ asset('public/PPDB/images/ppdb1.jpeg') }}"
                                 alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('PPDB/images/ppdb2.jpeg') }}"
+                            <img class="d-block w-100" src="{{ asset('public/PPDB/images/ppdb2.jpeg') }}"
                                 alt="Second slide">
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="" style="border-radius: 0%;">
                         <div class="new-arrival-product">
                             <div class="new-arrivals-img-content">
-                                <img class="img-fluid w-auto" src="{{ asset('PPDB/images/AlurPPDB.png') }}" alt="">
+                                <img class="img-fluid w-auto" src="{{ asset('public/PPDB/images/AlurPPDB.png') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                 <div class="card" style="border-radius: 0%">
                         <div class="new-arrival-product">
                             <div class="new-arrivals-img-contnent">
-                                <img class="img-fluid" src="{{ asset('PPDB/images/juara3.png') }}"
+                                <img class="img-fluid" src="{{ asset('public/PPDB/images/juara3.png') }}"
                                     alt="">
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                 <div class="card" style="border-radius: 0%">
                         <div class="new-arrival-product">
                             <div class="new-arrivals-img-contnent">
-                                <img class="img-fluid" src="{{ asset('PPDB/images/juaraadzan.png') }}" alt="">
+                                <img class="img-fluid" src="{{ asset('public/PPDB/images/juaraadzan.png') }}" alt="">
                             </div>
                         </div>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="card" style="border-radius: 0%">
                         <div class="new-arrival-product">
                             <div class="new-arrivals-img-contnent">
-                                <img class="img-fluid" src="{{ asset('PPDB/images/juara1.png') }}" alt="">
+                                <img class="img-fluid" src="{{ asset('public/PPDB/images/juara1.png') }}" alt="">
                             </div>
                         </div>
                 </div>
@@ -94,7 +94,7 @@
                                         <!-- Tab panes -->
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                                <img class="img-fluid" src="{{ asset('PPDB/images/ketentuan.png') }}" alt="">
+                                                <img class="img-fluid" src="{{ asset('public/PPDB/images/ketentuan.png') }}" alt="">
                                             </div>
 
                                         </div>

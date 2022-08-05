@@ -21,10 +21,10 @@
 
         <main class="form-signin">
             <h1 class="h3 mb-3 fw-normal text-center">Mohon Login!</h1>
-            <form action="/login" method="post">
+            <form action="{{url('login')}}" method="post">
                 @csrf
 
-              {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
+              {{-- <img class="mb-4" src="asset{{('public/assets/brand/bootstrap-logo.svg')}}" alt="" width="72" height="57"> --}}
 
               {{-- Form Email --}}
               <div class="form-floating">

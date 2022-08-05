@@ -10,7 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="{{asset('public/css/dashboard.css')}}" rel="stylesheet">
   </head>
   <body>
 
@@ -23,7 +23,7 @@
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
       {{-- Logout --}}
-      <form action="/logout" method="post">
+      <form action="{{url('logout')}}" method="post">
         @csrf
         <button type="submit" class="nav-link px-3 bg-dark border-0">
             <i class="bi bi-box-arrow-right"></i>Logout</button>
@@ -40,13 +40,13 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('dashboard-admin') ? 'active' : ''}}" aria-current="page" href="/dashboard-admin">
+            <a class="nav-link {{ Request::is('dashboard-admin') ? 'active' : ''}}" aria-current="page" href="{{url('dashboard-admin')}}">
               <span data-feather="home"></span>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('datapendaftar') ? 'active' : ''}}" href="/datapendaftar">
+            <a class="nav-link {{ Request::is('datapendaftar') ? 'active' : ''}}" href="{{url('datapendaftar')}}">
               <span data-feather="database"></span>
              Data Pendaftar
             </a>

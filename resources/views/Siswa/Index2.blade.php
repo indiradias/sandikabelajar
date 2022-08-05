@@ -13,7 +13,7 @@
           <div class="d-flex align-items-end row">
             <main style="padding: 45px">
               <img
-                  src="../assets/img/illustrations/man-with-laptop-light.png"
+                  src="{{asset('public/assets/img/illustrations/man-with-laptop-light.png')}}"
                   height="240" class="rounded mx-auto d-block"
                   alt="View Badge User"
                   data-app-dark-img="illustrations/man-with-laptop-dark.png"

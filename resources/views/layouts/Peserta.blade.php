@@ -8,7 +8,7 @@
 * Created by: ThemeSelection
 * License: You must have a valid license purchased in order to legally use the theme for your project.
 * Copyright ThemeSelection (https://themeselection.com)
-
+ data-assets-path="../assets/"
 =========================================================
  -->
 <!-- beautify ignore:start -->
@@ -17,7 +17,8 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../assets/"
+ 
+  data-assets-path="{{asset('public/assets/') }}"
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -34,7 +35,7 @@
     @yield('title-peserta')
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{asset('public/assets/img/favicon/favicon.ico')}}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,26 +46,26 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+        <!-- Icons. Uncomment required icon fonts -->
 
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../assets/css/demo.css" />
 
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+<!-- Core CSS -->
+<link rel="stylesheet" href="{{asset('public/assets/vendor/css/core.css')}}" class="template-customizer-core-css')}}" />
+<link rel="stylesheet" href="{{asset('public/assets/vendor/css/theme-default.css')}}" class="template-customizer-theme-css')}}" />
+<link rel="stylesheet" href="{{asset('public/assets/css/demo.css')}}" />
 
-    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+<!-- Vendors CSS -->
+<link rel="stylesheet" href="{{asset('public/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
+
+<link rel="stylesheet" href="{{asset('public/assets/vendor/libs/apex-charts/apex-charts.css')}}" />
 
     <!-- Page CSS -->
 
-    <!-- Helpers -->
-    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="{{asset('public/assets/vendor/js/helpers.js')}}"></script>
 
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../assets/js/config.js"></script>
+<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js')}} in the <head> section -->
+<!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+<script src="{{asset('public/assets/js/config.js')}}"></script>
   </head>
 
   <body>
@@ -131,7 +132,7 @@
               </span>
 
 
-              <img src="{{ asset('PPDB/images/logo smp.png') }}" width="40" height="40" class="d-inline-block align-text-top">
+              <img src="{{ asset('public/PPDB/images/logo smp.png') }}" width="40" height="40" class="d-inline-block align-text-top">
               <span class="app-brand-text menu-text fw-bolder ms-2">PPDB Online</span>
             </a>
 
@@ -145,7 +146,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item {{ Request::is('redirects') ? 'active' : ''}}" >
-              <a href="/redirects" class="menu-link">
+              <a href="{{url('redirects')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Dashboard">Dashboard</div>
               </a>
@@ -153,7 +154,7 @@
 
             <!-- Pembayaran -->
             <li class="menu-item {{ Request::is('pembayaran') ? 'active' : ''}}">
-              <a href="/pembayaran" class="menu-link">
+              <a href="{{url('/pembayaran')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Pembayaran">Pembayaran</div>
               </a>
@@ -161,7 +162,7 @@
 
             {{-- Pendaftaran --}}
             <li class="menu-item {{ Request::is('siswa/create') ? 'active' : ''}}">
-              <a href="/siswa/create" class="menu-link">
+              <a href="{{url('siswa/create')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Pendaftaran">Pendaftaran</div>
               </a>
@@ -169,7 +170,7 @@
 
             {{-- Informasi --}}
             <li class="menu-item {{ Request::is('siswa') ? 'active' : ''}}">
-              <a href="/siswa" class="menu-link">
+              <a href="{{url('siswa')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Informasi</div>
               </a>
@@ -206,7 +207,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="{{asset('public/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -215,7 +216,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="{{asset('public/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -245,7 +246,7 @@
                     </li>
                     <li>
                       <a class="dropdown-item" href="auth-login-basic.html">
-                        <form action="/logout" method="post">
+                        <form action="{{url('logout')}}" method="post">
                             @csrf
                             <button type="submit" class="nav-link px-3 bg-light border-0">
                                 <i class="bi bi-box-arrow-right"></i>Logout</button>
@@ -299,18 +300,18 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="{{asset('public/assets/vendor/libs/jquery/jquery.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/libs/popper/popper.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/js/bootstrap.js')}}"></script>
+    <script src="{{asset('public/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="{{asset('public/assets/vendor/js/menu.js')}}"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+    <script src="{{asset('public/assets/js/main.js')}}"></script>
 
     <!-- Page JS -->
 

@@ -13,20 +13,20 @@
     {{-- <title>Sistem PPDB | Dashboard Admin</title> --}}
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('public/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    {{-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> --}}
-    {{-- <link href="/css/dashboard.css" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('public/css/sb-admin-2.min.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('public/css/dashboard.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/sb-admin-2.css') }}" rel="stylesheet">
 
 
 
@@ -44,7 +44,7 @@
             <div class="slider">
                 <div class="slider-head">
                     <div class="d-block pt-4 pb-3 px-5 ">
-                        <img src= "{{ asset('PPDB/images/logo smp.png') }}" width="130" height="135" class="d-inline-block align-text-top">
+                        <img src= "{{ asset('public/PPDB/images/logo smp.png') }}" width="130" height="135" class="d-inline-block align-text-top">
                          <p class="fw-bold mb-0 lh-1 text-bold text-center text-white ">Admin PPDB</p>
                     </div>
                 </div>
@@ -59,25 +59,25 @@
                 <ul class="nav flex-column">
 
                     <li class="nav-item active">
-                        <a class="nav-link {{ Request::is('/redirects') ? 'active' : ''}}" href="/redirects">
+                        <a class="nav-link {{ Request::is('/redirects') ? 'active' : ''}}" href="{{url('redirects')}}">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link {{ Request::is('datapendaftar*') ? 'active' : ''}}" href="/datapendaftar">
+                        <a class="nav-link {{ Request::is('datapendaftar*') ? 'active' : ''}}" href="{{url('datapendaftar')}}">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Data Pendaftar</span></a>
                     </li>
 
                   <li class="nav-item active">
-                    <a class="nav-link {{ Request::is('penilaian*') ? 'active' : ''}}" href="/penilaian">
+                    <a class="nav-link {{ Request::is('penilaian*') ? 'active' : ''}}" href="{{url('penilaian')}}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Penilaian</span></a>
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link {{ Request::is('peserta-diterima') ? 'active' : ''}}" href="/pesertaditerima">
+                    <a class="nav-link {{ Request::is('peserta-diterima') ? 'active' : ''}}" href="{{url('pesertaditerima')}}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Peserta Diterima</span></a>
                 </li>
@@ -111,7 +111,7 @@
                             <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                <form action="/logout" method="post">
+                                <form action="{{'logout'}}" method="post">
                                     @csrf
                                     <button type="submit" class="nav-link px-2 bg-warning link border-0">
                                         <i class="fas fa-sign-out-alt text-white"> </i>
@@ -195,27 +195,27 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('public/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('public/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{asset('public/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{{asset('public/js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="{{asset('public/vendor/chart.js')}}/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="{{asset('public/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('public/js/demo/chart-pie-demo.js')}}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{asset('public/js/jquery.js')}}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{asset('public/js/dashboard.js')}}"></script>
 
     <script src="https://kit.fontawesome.com/f18d3773ef.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
