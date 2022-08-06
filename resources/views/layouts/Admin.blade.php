@@ -111,7 +111,7 @@
                             <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                <form action="{{'logout'}}" method="post">
+                                <form action="{{ url ('logout') }}" method="post">
                                     @csrf
                                     <button type="submit" class="nav-link px-2 bg-warning link border-0">
                                         <i class="fas fa-sign-out-alt text-white"> </i>

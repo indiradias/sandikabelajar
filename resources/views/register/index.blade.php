@@ -6,7 +6,7 @@
     <div class="col-lg-5">
         <main class="form-registration">
             <h1 class="h3 mb-3 fw-normal text-center">Mohon Registrasi</h1>
-            <form action="/register" method="post">
+            <form action="{{ url ('/register') }}" method="post">
                 @csrf
               {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
 
@@ -60,7 +60,7 @@
 
               <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
             </form>
-            <small class="d-block text-center mt-3">Sudah Register? <a href="/login">Langsung login!</a></small>
+            <small class="d-block text-center mt-3">Sudah Register? <a href="{{ url ('login') }}">Langsung login!</a></small>
           </main>
     </div>
 </div>

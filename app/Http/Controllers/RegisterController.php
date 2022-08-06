@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +33,13 @@ class RegisterController extends Controller
         $validatedData['password'] = bcrypt($validatedData['password']);
 
         //untk simpan data register pda database
-        User::create($validatedData);
+        $siswa =User::create($validatedData)->id;
+
+        Siswa::create([
+            'user_id'=>$siswa,
+
+
+        ]);
 
         // return redirect()->intended('/redirect'); //untuk menampilkan halaman dashboard user
         // return view('dashboard.dashboard-user');

@@ -42,7 +42,7 @@
                         <a class="nav-link {{ ($title === "/login") ? 'active' : ''}}" href="{{url('login')}}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ ($title === "/register") ? 'active' : ''}}" href="/register">Register</a>
+                        <a class="nav-link {{ ($title === "/register") ? 'active' : ''}}" href="{{ url('register')}}">Register</a>
                     </li>
                 </ul>
 

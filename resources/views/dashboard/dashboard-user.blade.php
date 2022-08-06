@@ -19,7 +19,7 @@
                           />
                         <h3 style="padding: 50px" class="text-center">Selamat Datang di Aplikasi <br>Penerimaan Peserta Didik Baru SMP Al Azhar Muncar.</h3>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <a class="btn btn-primary text-center" href="/pembayaran" class="btn btn-sm btn-success">Daftar Sekarang</a>
+                            <a class="btn btn-primary text-center" href="{{ url ('/pembayaran') }}" class="btn btn-sm btn-success">Daftar Sekarang</a>
                         </div>
                       </main>
                     </div>

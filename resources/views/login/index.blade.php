@@ -48,7 +48,7 @@
 
               <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Login</button>
             </form>
-            <small class="d-block text-center mt-3">Belum punya akun? <a href="/register">Register sekarang!</a></small>
+            <small class="d-block text-center mt-3">Belum punya akun? <a href="{{ url ('register') }}">Register sekarang!</a></small>
           </main>
     </div>
 </div>

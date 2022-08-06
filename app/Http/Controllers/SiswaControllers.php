@@ -48,7 +48,7 @@ class SiswaControllers extends Controller
      */
     public function store(Request $request)
     {
-        Siswa::insert([
+        Siswa::where('user_id',auth()->user()->id)->update([
             'user_id' => auth()->id(), //untuk ngambil id yg login
             'tahun_ajaran' => $request -> input('tahun_ajaran'),
             'nisn' => $request -> input('nisn'),

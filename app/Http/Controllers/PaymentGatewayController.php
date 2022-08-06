@@ -16,9 +16,33 @@ class PaymentGatewayController extends Controller
      */
     public function index(Request $request)
     {
-
         //melalkukan pengecekan status pembayaran
         $siswa = Siswa::where('user_id', auth()->user()->id)->first();
+
+        if($siswa == null){
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => $siswa->order_id,
+                    // 'order_id' => $order_id,
+
+                    'gross_amount' => 300000,
+                ),
+                'customer_details' => array(
+                    'first_name' => auth()->user()->name,
+                    'last_name' => '',
+                    'email' => auth()->user()->email,
+                    'phone' => $siswa->noHp_orangtua,
+                ),
+            );
+            $snapToken = \Midtrans\Snap::createTransaction($params); //klik pembayaran
+            // return $snapToken;
+            //kembalian nilai token untuk melakukaan pembayaran
+            $snapToken = \Midtrans\Snap::getSnapToken($params); //get biar dapat VA pembayaran
+            // return $snapToken;
+
+            return view('paymentgateway', ['snap_token' => $snapToken]);
+        }
+
         if ($siswa->pembayaran == 'terbayar') {
             //jika terbayar ke halaman pendaftaran isi form atau bisa di ubah
 
@@ -35,12 +59,13 @@ class PaymentGatewayController extends Controller
             \Midtrans\Config::$isSanitized = true;
             // Set 3DS transaction for credit card to true
             \Midtrans\Config::$is3ds = true;
-            $order_id = Str::random(5);
+            $order_id = Str::random(5); //id unik pembayaran
 
             $siswa->update([
-                'pembayaran' => 'terkirim',
+                'pembayaran' => 'menunggu pembayaran',
                 'order_id' => $order_id,
             ]);
+
             $params = array(
                 'transaction_details' => array(
                     'order_id' => $siswa->order_id,
@@ -56,13 +81,11 @@ class PaymentGatewayController extends Controller
                 ),
             );
 
-
-
-                //bentuk cart yang akan dikirim ke midtrans
-            $snapToken = \Midtrans\Snap::createTransaction($params);
+            //bentuk cart yang akan dikirim ke midtrans
+            $snapToken = \Midtrans\Snap::createTransaction($params); //klik pembayaran
             // return $snapToken;
             //kembalian nilai token untuk melakukaan pembayaran
-            $snapToken = \Midtrans\Snap::getSnapToken($params);
+            $snapToken = \Midtrans\Snap::getSnapToken($params); //get biar dapat VA pembayaran
             // return $snapToken;
 
             return view('paymentgateway', ['snap_token' => $snapToken]);
@@ -149,8 +172,9 @@ class PaymentGatewayController extends Controller
 
         //mengambil response dari midtrans
         $payload = $request->getContent();
+
         //melakukan parsing response dari midtrans
-        $notification = json_decode($payload);
+        $notification = json_decode($payload); //kode stts pembayaran (settelement, pending, dll)
         // $json = json_decode($request->get('json')); //nama json dipanggil dari token yg awto kepanggil dari API
         // $order = new Siswa();
 

@@ -17,7 +17,7 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
- 
+
   data-assets-path="{{asset('public/assets/') }}"
   data-template="vertical-menu-template-free"
 >
@@ -220,7 +220,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            {{-- <span class="fw-semibold d-block">{{auth()->user()->name}}</span> --}}
+                            <span class="fw-semibold d-block">{{auth()->user()->name}}</span>
                             <small class="text-muted">Peserta</small>
                           </div>
                         </div>
