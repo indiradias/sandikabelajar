@@ -130,7 +130,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Pasphoto</label>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('public/storage/'. $siswa->pasphoto) }}" class="btn btn-xs btn-secondary">Show File</a>
+                                    <a href="{{ asset('public/storage/pasphoto/'. $siswa->pasphoto) }}" class="btn btn-xs btn-secondary">Show File</a>
                                 </div>
                             </div>
 

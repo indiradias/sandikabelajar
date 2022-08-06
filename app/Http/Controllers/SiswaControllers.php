@@ -30,8 +30,8 @@ class SiswaControllers extends Controller
      */
     public function create()
     {
-        $siswa = Siswa::with('user')->where('user_id', Auth::user()->id)->count();
-        if($siswa >= 1){
+        $siswa = Siswa::with('user')->where('user_id', Auth::user()->id)->first();
+        if($siswa->pembayaran != 'terbayar'){
             return view('Siswa/Index2');
         }
         else{
