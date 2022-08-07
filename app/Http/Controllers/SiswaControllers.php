@@ -32,7 +32,7 @@ class SiswaControllers extends Controller
     {
         $siswa = Siswa::with('user')->where('user_id', Auth::user()->id)->first();
         if($siswa->pembayaran != 'terbayar'){
-            return view('Siswa/Index2');
+            return view('Siswa/Index');
         }
         else{
             return view('Siswa/Create');
