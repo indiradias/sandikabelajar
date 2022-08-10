@@ -9,7 +9,7 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Peserta Diterima</h1>
-  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-calculator fa-sm text-white-50"></i> Generate Nilai</a>
+  {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-calculator fa-sm text-white-50"></i> Generate Nilai</a> --}}
 </div>
 
 {{-- Menu Search--}}
@@ -34,7 +34,7 @@
         <p>{{ $message }}</p>
       </div>
       @endif
-   
+
       <!-- {{-- form kirim status ceklist--}} -->
       <div class="row form-group gap-1 d-md-flex justify-content-end card-header ">
         <form class="form" id="formkirim" method="POST" action="{{url('update_status')}}">
@@ -63,8 +63,8 @@
       </div>
 
       <table class="table table-bordered table-striped table-hover">
-     
-      
+
+
         <thead>
           <tr>
             <th>No</th>
@@ -73,7 +73,6 @@
             <th>Nama Peserta</th>
             <th>Jenis Kelamin</th>
             <th>Nilai Akhir</th>
-            <th>Status Peserta</th>
             <th class="text-center">Aksi</th>
             <th></th>
           </tr>
@@ -91,7 +90,6 @@
             {{ $siswa->nilai_rata }}
             <i class="fe fe-info"></i>
           </td>
-          <td>{{ $siswa->jenis_kelamin}}</td>
 
           {{-- Action --}}
           <td class="text-center">
@@ -166,7 +164,7 @@
 
     $("#button-kirim").on('click', ()=>{
         cekAll();
-    });	
+    });
 
     function  cekAll(){
       //proses utk kirim nilia ceklist ke form

@@ -17,6 +17,7 @@ class RedirectsController extends Controller
 
         //Buat liat statistik nilai (persentase) di menu dashboard admin
         $jumlah = Siswa::count();
+        // $jumlah = Siswa::where('pembayaran', 'terbayar')->count();
         $terverifikasi = Siswa::where('status_pendaftaran', 'Berkas Terverifikasi')->count();
         $blm_terverifikasi = Siswa::where('status_pendaftaran', 'Berkas Belum Terverifikasi')->count();
         // $nilai = Siswa::where('nilai_rata')->count();
