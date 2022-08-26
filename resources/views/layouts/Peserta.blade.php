@@ -35,7 +35,7 @@
     @yield('title-peserta')
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{asset('public/assets/img/favicon/favicon.ico')}}" />
+    {{-- <link rel="icon" type="image/x-icon" href="{{asset('public/assets/img/favicon/favicon.ico')}}" /> --}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -207,7 +207,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="{{asset('public/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="{{asset('public/assets/img/favicon/profil.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -216,7 +216,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="{{asset('public/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="{{asset('public/assets/img/favicon/profil.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -246,7 +246,7 @@
                     </li>
                     <li>
                       <a class="dropdown-item" href="auth-login-basic.html">
-                        <form action="{{url('logout')}}" method="post">
+                        <form action="{{url('/logout')}}" method="post">
                             @csrf
                             <button type="submit" class="nav-link px-3 bg-light border-0">
                                 <i class="bi bi-box-arrow-right"></i>Logout</button>

@@ -150,8 +150,8 @@
             <div class="col-sm-2">
 
                 <td class="text"><br>
-                    {{-- <img src="{{ asset('storage/' . $siswa->pasphoto) }}" width="80" height="120"> --}}
-                    <img src="{{ asset('public/storage/' . $siswa->pasphoto) }}" width="80" height="120">
+                    {{-- <img src="{{ asset('storage/' . $siswa->pasphoto) }}" width="279" height="381"> --}}
+                    <img src="{{ asset('/public/storage/app/public/' . $siswa->pasphoto) }}" width="80" height="120">
                 </td>
             </div>
         </div>

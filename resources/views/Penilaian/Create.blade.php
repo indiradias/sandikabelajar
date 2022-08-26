@@ -45,10 +45,11 @@
                 <div class="form-group">
                     <strong>Tes Wawancara</strong>
                     <input
-                        type="text"
+                        type="number"
                         name="tes_wawancara"
                         class="form-control"
                         placeholder="Masukkan Nilai"
+                        min="0" max="100"
                         required
                     >
                 </div>
@@ -57,10 +58,11 @@
                 <div class="form-group">
                     <strong>Tes Tulis</strong>
                     <input
-                        type="text"
+                        type="number"
                         name="tes_tulis"
                         class="form-control"
                         placeholder="Masukkan Nilai"
+                        min="0" max="100"
                         required
                     >
                 </div>
@@ -69,11 +71,12 @@
                 <div class="form-group">
                     <strong>Tes Mengaji</strong>
                     <input
-                        type="text"
+                        type="number"
                         name="tes_mengaji"
                         required
                         class="form-control"
                         placeholder="Masukkan Nilai"
+                        min="0" max="100"
                     >
                 </div>
             </div>

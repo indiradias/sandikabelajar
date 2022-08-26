@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('jenis_tes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_tes');
+            $table->string('nama_tes', 15);
             $table->timestamps();
         });
 

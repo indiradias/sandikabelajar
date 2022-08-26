@@ -20,7 +20,7 @@ class PesertaDiterimaController extends Controller
         $this->authorize('admin'); //untuk authorization (level akses)
 
         //menu search
-        $pagination  = 5;
+        $pagination  = 15;
         $keyword = $request->keywoard;
         //menambah descending pada sortir nilai tertinggi ke terendah. DESC=Dari Tinggi ke Rendah
         $sisw   = Siswa::orderBy('nilai_rata','DESC')->where(function ($query) use ($keyword) {
@@ -52,7 +52,7 @@ class PesertaDiterimaController extends Controller
         // $sisw = $sisw->sortBy("nilai");
         // dd($sisw);
 
-        return view('PesertaDiterima/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('PesertaDiterima/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 15);
     }
 
     /**

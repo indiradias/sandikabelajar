@@ -130,42 +130,42 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Pasphoto</label>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('public/storage/'. $siswa->pasphoto) }}" class="btn btn-xs btn-secondary">Show File</a>
+                                    <a href="{{ asset('storage/app/public/'. $siswa->pasphoto) }}" class="btn btn-xs btn-secondary">Show File</a>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Akta Peserta</label>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('public/storage/' . $siswa->akta_peserta) }}" class="btn btn-xs btn-secondary">Show File</a>
+                                    <a href="{{ asset('storage/app/public/' . $siswa->akta_peserta) }}" class="btn btn-xs btn-secondary">Show File</a>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">KTP Orangtua</label>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('public/storage/' . $siswa->ktp_orangtua) }}" class="btn btn-xs btn-secondary">Show File</a>
+                                    <a href="{{ asset('storage/app/public/' . $siswa->ktp_orangtua) }}" class="btn btn-xs btn-secondary">Show File</a>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Kartu Keluarga</label>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('public/storage/' . $siswa->kartu_keluarga) }}" class="btn btn-xs btn-secondary">Show File</a>
+                                    <a href="{{ asset('storage/app/public/' . $siswa->kartu_keluarga) }}" class="btn btn-xs btn-secondary">Show File</a>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Raport</label>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('public/storage/' . $siswa->raport) }}" class="btn btn-xs btn-secondary">Show File</a>
+                                    <a href="{{ asset('storage/app/public/' . $siswa->raport) }}" class="btn btn-xs btn-secondary">Show File</a>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Sertifikat Prestasi</label>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('public/storage/' . $siswa->sertifikat_prestasi) }}" class="btn btn-xs btn-secondary">Show File</a>
+                                    <a href="{{ asset('storage/app/public/' . $siswa->sertifikat_prestasi) }}" class="btn btn-xs btn-secondary">Show File</a>
                                 </div>
                             </div>
                         </div>

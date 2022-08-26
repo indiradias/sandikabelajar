@@ -142,7 +142,7 @@
                                                     <br>
 
                                                     <td class="text-center">
-                                                        <a class="btn btn-warning {{ ($title === "Panduan") }}" href="PPDB/images/panduan.png" id="panduan">Panduan Pendaftaran</a>
+                                                        <a class="btn btn-warning {{ ($title === "Panduan") }}" href="{{ asset ('public/PPDB/images/panduan.png') }}" id="panduan">Panduan Pendaftaran</a>
                                                     </td>
 
                                                 </div>

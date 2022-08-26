@@ -26,6 +26,7 @@
     <div class="container-xxl flex-grow-1 container-p-y">
 
               <div class="row">
+                <p>*Wajib mengisi keseluruhan kolom pendaftaran. <br>Pendaftar Jalur 1 tidak diwajibkan unggah sertifikat prestasi. </p>
                 <!-- Data Peserta -->
                 <div class="col-md-6">
                   <div class="card mb-4">
@@ -164,32 +165,32 @@
               <div class="card-body demo-vertical-spacing demo-only-element">
 
                 <div class="form-group">
-                    <strong>Pas Photo (3x4)</strong>
+                    <strong>Pas Photo (image)</strong>
                   <input type="file" class="form-control" id="pasphoto" name="pasphoto" required/>
                 </div>
 
                 <div class="form-group">
-                    <strong>Akta Peserta</strong>
+                    <strong>Akta Peserta (file/image)</strong>
                   <input type="file" class="form-control" name="akta_peserta" required />
                 </div>
 
                 <div class="form-group">
-                    <strong>KTP Orangtua</strong>
+                    <strong>KTP Orangtua (file/image)</strong>
                   <input type="file" class="form-control" name="ktp_orangtua" required/>
                 </div>
 
                 <div class="form-group">
-                    <strong>Kartu Keluarga</strong>
+                    <strong>Kartu Keluarga (file/image)</strong>
                   <input type="file" class="form-control" name="kartu_keluarga" required/>
                 </div>
 
                 <div class="form-group">
-                    <strong>Raport</strong>
+                    <strong>Raport (image)</strong>
                   <input type="file" class="form-control" name="raport" required/>
                 </div>
 
                 <div class="form-group">
-                    <strong>Sertifikat Prestasi</strong> <span>*(Wajib diisi untuk pendaftaran gelombang 2)</span>
+                    <strong>Sertifikat Prestasi (file/image)</strong> <span>*(Wajib diisi untuk pendaftaran gelombang 2)</span>
                   <input type="file" class="form-control" name="sertifikat_prestasi" />
                 </div>
                 {{-- End Of Upload Berkas Persyaratan --}}

@@ -19,7 +19,7 @@ class DataPendaftarController extends Controller
         // dd(request('keywoard'));
         $this->authorize('admin'); //untuk authorization (level akses)
 
-        $pagination  = 5;
+        $pagination  = 15;
         $keyword = $request->keywoard;
         $sisw   = Siswa::where(function ($query) use ($keyword) {
             return $query
@@ -29,7 +29,7 @@ class DataPendaftarController extends Controller
         })->orderBy('created_at', 'desc')->paginate(5);
 
 
-        return view('DataPendaftar/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('DataPendaftar/Index', compact('sisw'))->with('i', (request()->input('page', 1) - 1) * 15);
         //return view ('datapendaftar-admin',compact('sisw'));
 
         // if($request->has('search')){
@@ -115,6 +115,7 @@ class DataPendaftarController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //buat ubah stts pendaftaran
         $request->validate([
             'status_pendaftaran' => 'required',
         ]);

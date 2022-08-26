@@ -22,6 +22,7 @@ class PaymentGatewayController extends Controller
         if ($siswa->pembayaran == 'terbayar') {
             //jika terbayar ke halaman pendaftaran isi form atau bisa di ubah
 
+            // return redirect('Siswa/Create');
             return redirect('siswa/create');
         } else {
             //jika belum maka melakukan konfig auth  buat merubah status

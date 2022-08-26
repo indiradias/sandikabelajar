@@ -71,7 +71,7 @@
             <th>NISN</th>
             <th>Nik Peserta</th>
             <th>Nama Peserta</th>
-            <th>Jenis Kelamin</th>
+            <th>JK</th>
             <th>Nilai Akhir</th>
             <th class="text-center">Aksi</th>
             <th></th>
@@ -96,14 +96,14 @@
             @if($siswa->status_pendaftaran == 'Diterima')
             <a class="btn btn-success" href="{{url('pesertaditerimas',$siswa->id) }}" class="btn btn-sm btn-warning">Diterima</a>
             @elseif($siswa->status_pendaftaran == 'Ditolak')
-            <a class="btn btn-warning" href="{{url('pesertaditerimas-ditolak',$siswa->id) }}" class="btn btn-sm btn-warning">Ditolak</a>
+            <a class="btn btn-danger" href="{{url('pesertaditerimas-ditolak',$siswa->id) }}" class="btn btn-sm btn-warning">Ditolak</a>
 
             @else
             <!-- <a class="btn btn-success" href="{{ route('pesertaditerima.edit',$siswa->id) }}" class="btn btn-sm btn-warning">Diterima</a>
             <a class="btn btn-warning" href="/peserta/ditolak/{{ $siswa->nisn}}" class="btn btn-sm btn-warning">Ditolak</a> -->
 
             <a class="btn btn-success" href="{{url('pesertaditerimas',$siswa->id) }}" class="btn btn-sm btn-warning">Diterima</a>
-            <a class="btn btn-warning" href="{{url('pesertaditerimas-ditolak',$siswa->id) }}" class="btn btn-sm btn-warning">Ditolak</a>
+            <a class="btn btn-danger" href="{{url('pesertaditerimas-ditolak',$siswa->id) }}" class="btn btn-sm btn-warning">Ditolak</a>
             @endif
           </td>
 

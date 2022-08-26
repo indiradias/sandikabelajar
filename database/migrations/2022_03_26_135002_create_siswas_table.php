@@ -16,36 +16,36 @@ return new class extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             // $table->id();
             // $table->foreignId('penilaian_id'); //  foreign key ke table penilaian
-            $table->string('pembayaran')->nullable(); //stts pembayaran
-            $table->string('transaction_id')->nullable();
-            $table->string('order_id')->nullable();
+            $table->string('pembayaran', 25)->nullable(); //stts pembayaran
+            $table->string('transaction_id' ,45)->nullable();
+            $table->string('order_id' ,5)->nullable();
 
             $table->id();
             $table->foreignId('user_id')->constrained(); //foreign key user id. User-Siswa
-            $table->text('tahun_ajaran')->nullable();
-            $table->char('nisn')->nullable();
-            $table->text('nik_peserta')->nullable();
-            $table->text('nama_peserta')->nullable();
-            $table->text('jenis_kelamin')->nullable();
-            $table->text('tempat_lahir')->nullable();
-            $table->text('tanggal_lahir')->nullable();
-            $table->text('asal_sekolah')->nullable();
+            $table->string('tahun_ajaran', 10)->nullable();
+            $table->integer('nisn')->nullable();
+            $table->string('nik_peserta', 16)->nullable();
+            $table->string('nama_peserta', 45)->nullable();
+            $table->string('jenis_kelamin', 12)->nullable();
+            $table->string('tempat_lahir', 15)->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('asal_sekolah', 20)->nullable();
             $table->text('alamat_peserta')->nullable();
-            $table->text('nama_ayah')->nullable();
-            $table->text('nama_ibu')->nullable();
-            $table->text('nik_ayah')->nullable();
-            $table->text('nik_ibu')->nullable();
-            $table->text('pekerjaan_ayah')->nullable();
-            $table->text('pekerjaan_ibu')->nullable();
+            $table->string('nama_ayah' ,10)->nullable();
+            $table->string('nama_ibu',10)->nullable();
+            $table->string('nik_ayah' ,16)->nullable();
+            $table->string('nik_ibu' ,16)->nullable();
+            $table->string('pekerjaan_ayah', 10)->nullable();
+            $table->string('pekerjaan_ibu', 10)->nullable();
             $table->text('alamat_orangtua')->nullable();
-            $table->text('noHp_orangtua')->nullable();
-            $table->string('status_pendaftaran')->default('Berkas Belum Terverifikasi')->nullable();
-            $table->string('pasphoto')->nullable();
-            $table->string('akta_peserta')->nullable();
-            $table->string('ktp_orangtua')->nullable();
-            $table->string('kartu_keluarga')->nullable();
-            $table->string('raport')->nullable();
-            $table->string('sertifikat_prestasi')->nullable();
+            $table->string('noHp_orangtua' ,12)->nullable();
+            $table->text('status_pendaftaran', 25)->default('Berkas Belum Terverifikasi')->nullable();
+            $table->string('pasphoto' ,45)->nullable();
+            $table->string('akta_peserta', 45)->nullable();
+            $table->string('ktp_orangtua', 45)->nullable();
+            $table->string('kartu_keluarga', 45)->nullable();
+            $table->string('raport', 80)->nullable();
+            $table->string('sertifikat_prestasi', 45)->nullable();
             $table->double('nilai_rata')->nullable();
             $table->timestamps();
         });

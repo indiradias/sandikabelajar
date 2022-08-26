@@ -9,7 +9,7 @@
      <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Penilaian Admin</h1>
         <a href="{{url ('/pesertaditerima') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-calculator fa-sm text-white-50"></i> Generate Nilai</a>
+                class="fas fa-calculator fa-sm text-white-50"></i> Ranking Nilai</a>
     </div>
 
       {{-- Menu Search--}}
@@ -41,7 +41,7 @@
                     <th>NISN</th>
                     <th>Nik Peserta</th>
                     <th>Nama Peserta</th>
-                    <th>Jenis Kelamin</th>
+                    <th>JK</th>
                     <th>Nilai</th>
                     <th class="text-center">Aksi</th>
                 </tr>

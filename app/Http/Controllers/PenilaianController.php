@@ -18,7 +18,7 @@ class PenilaianController extends Controller
     {
         $this->authorize('admin'); //untuk authorization (level akses)
 
-        $pagination  = 5;
+        $pagination  = 15;
         $keyword = $request->keywoard;
         $sisw   = Siswa::where(function ($query) use ($keyword) {
             return $query
@@ -30,6 +30,7 @@ class PenilaianController extends Controller
         // $sisw->appends($request->only('keyword'));
 
         // set perhitungan nilai rata-rata dari 3 jenis test (untuk nampilin di view)
+        //foreach (looping)
         foreach ($sisw as $key => $siswa) {
             $nilai = $siswa->getPenilaian()->get();
             if (!empty($nilai[0]))
@@ -42,7 +43,7 @@ class PenilaianController extends Controller
         // $sisw = $sisw->sortBy("nilai");
         // dd($nilai);
 
-        return view ('Penilaian/Index',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 5);
+        return view ('Penilaian/Index',compact('sisw'))->with('i', (request()->input('page', 1) -1) * 15);
     }
 
     /**
